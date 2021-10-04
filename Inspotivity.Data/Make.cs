@@ -14,10 +14,18 @@ namespace Inspotivity.Data
         public int MakeId { get; set; }
         [Required]
         public virtual User UserId { get; set; }
+        [Display(Name = "Patter Used")]
         public virtual Pattern PatternId { get; set; }
+        [Display(Name = "Fabric Used")]
         public virtual Fabric FabricId { get; set; }
+        [Display(Name = "Made For")]
+        public virtual Measurements Who { get; set; }
+        [Display(Name = "Size Made")]
         public string SizeMade { get; set; }
+        [Display(Name = "Any Notes")]
         public string Notes { get; set; }
+        [Display(Name = "When Made")]
+        public DateTimeOffset DateMade { get; set; }
 
     }
 }

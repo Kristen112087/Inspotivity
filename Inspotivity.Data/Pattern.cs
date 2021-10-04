@@ -33,6 +33,7 @@ namespace Inspotivity.Data
         public string PatternName { get; set; }
         public DateTimeOffset ReleaseDate { get; set; }
         public DateTimeOffset PurchaseDate { get; set; }
+        public string PatternURL { get; set; }
         public string PatternNumber { get; set; }
         public string Category { get; set; }
         public string FabricTypeNeeded { get; set; }
@@ -42,6 +43,7 @@ namespace Inspotivity.Data
         public Enum DifficultyLevel{ get; set; }
         [DefaultValue(false)]
         public bool HaveMade { get; set; }
+        [Display(Name = "Where I have it stored")]
         public string WhereStored { get; set; }
     }
 }
