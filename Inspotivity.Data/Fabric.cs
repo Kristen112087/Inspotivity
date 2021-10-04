@@ -11,6 +11,7 @@ namespace Inspotivity.Data
     {
         [Key]
         public int FabricId { get; set; }
+        [Required]
         public virtual User UserId { get; set; }
         public string FabricType { get; set; }
         public string FiberContent { get; set; }

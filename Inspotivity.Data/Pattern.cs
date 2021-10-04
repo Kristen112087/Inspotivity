@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -26,6 +27,7 @@ namespace Inspotivity.Data
     {
         [Key]
         public int PatternId { get; set; }
+        [Required]
         public virtual User UserId { get; set; }
         public string Designer { get; set; }
         public string PatternName { get; set; }
@@ -38,6 +40,7 @@ namespace Inspotivity.Data
         public string NotionsNeeded { get; set; }
         public Enum PatternFor { get; set; }
         public Enum DifficultyLevel{ get; set; }
+        [DefaultValue(false)]
         public bool HaveMade { get; set; }
         public string WhereStored { get; set; }
     }

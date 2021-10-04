@@ -12,10 +12,11 @@ namespace Inspotivity.Data
     {
         [Key]
         public int MakeId { get; set; }
+        [Required]
         public virtual User UserId { get; set; }
         public virtual Pattern PatternId { get; set; }
-        public string SizeMade { get; set; }
         public virtual Fabric FabricId { get; set; }
+        public string SizeMade { get; set; }
         public string Notes { get; set; }
 
     }
