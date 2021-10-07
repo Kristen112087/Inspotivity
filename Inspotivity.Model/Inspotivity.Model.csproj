@@ -54,11 +54,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Fabric\CreateFabric.cs" />
+    <Compile Include="Fabric\FabricDetail.cs" />
+    <Compile Include="Fabric\FabricEdit.cs" />
+    <Compile Include="Fabric\Fabrics.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Makes\" />
+    <Folder Include="Measurements\" />
+    <Folder Include="Patterns\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

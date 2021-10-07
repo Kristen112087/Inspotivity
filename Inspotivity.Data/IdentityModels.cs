@@ -35,7 +35,7 @@ namespace Inspotivity.Data
         public DbSet<Pattern> Pattern { get; set; }
         public DbSet<Fabric> Fabrics { get; set; }
         public DbSet<Make> Makes { get; set; }
-        public DbSet<Measurements> { get; set; }
+        public DbSet<Measurements> Measurements { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
