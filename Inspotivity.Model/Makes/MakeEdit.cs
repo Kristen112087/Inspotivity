@@ -1,21 +1,17 @@
-﻿using System;
+﻿using Inspotivity.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Inspotivity.Data
+namespace Inspotivity.Model.Makes
 {
-    public class Make
+    public class MakeEdit
     {
-        [Key]
-        public int MakeId { get; set; }
-        [Required]
-        public virtual User UserId { get; set; }
-        [Display(Name = "Pattern Used")]
-        public virtual Pattern PatternId { get; set; }
+        [Display(Name = "Pattern Namw Used")]
+        public virtual Pattern PatternName { get; set; }
         [Display(Name = "Fabric Used")]
         public virtual Fabric FabricId { get; set; }
         [Display(Name = "Made For")]
@@ -26,6 +22,5 @@ namespace Inspotivity.Data
         public string Notes { get; set; }
         [Display(Name = "When Made")]
         public DateTimeOffset DateMade { get; set; }
-
     }
 }

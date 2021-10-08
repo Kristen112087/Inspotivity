@@ -54,10 +54,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Fabric\CreateFabric.cs" />
-    <Compile Include="Fabric\FabricDetail.cs" />
-    <Compile Include="Fabric\FabricEdit.cs" />
-    <Compile Include="Fabric\Fabrics.cs" />
+    <Compile Include="FabricModels\FabricCreate.cs" />
+    <Compile Include="FabricModels\FabricDetail.cs" />
+    <Compile Include="FabricModels\FabricEdit.cs" />
+    <Compile Include="FabricModels\FabricItem.cs" />
+    <Compile Include="Makes\MakeCreate.cs" />
+    <Compile Include="Makes\MakeDetail.cs" />
+    <Compile Include="Makes\MakeEdit.cs" />
+    <Compile Include="Makes\MakeItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -65,9 +69,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Makes\" />
     <Folder Include="Measurements\" />
     <Folder Include="Patterns\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Inspotivity.Data\Inspotivity.Data.csproj">
+      <Project>{07c044e6-205a-4cb6-87aa-762b55359c60}</Project>
+      <Name>Inspotivity.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

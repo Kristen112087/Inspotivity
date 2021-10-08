@@ -5,10 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Inspotivity.Model.Fabric
+namespace Inspotivity.Model.FabricModels
 {
-    public class CreateFabric
+    public class FabricEdit
     {
+        public int FabricId { get; set; }
+        [Required]
         public string FabricType { get; set; }
         [Display(Name = "Fiber Content")]
         public string FiberContent { get; set; }
