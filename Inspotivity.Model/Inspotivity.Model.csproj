@@ -63,6 +63,9 @@
     <Compile Include="Makes\MakeEdit.cs" />
     <Compile Include="Makes\MakeItem.cs" />
     <Compile Include="Measurements\MeasurementCreate.cs" />
+    <Compile Include="Measurements\MeasurementDelete.cs" />
+    <Compile Include="Measurements\MeasurementDetail.cs" />
+    <Compile Include="Measurements\MeasurementEdit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

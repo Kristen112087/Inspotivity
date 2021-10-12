@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Inspotivity.Model.Measurements
 {
-    public class MeasurementCreate
+   public class MeasurementDetail
     {
         public string Who { get; set; }
         public double Height { get; set; }
