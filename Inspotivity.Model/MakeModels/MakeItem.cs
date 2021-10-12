@@ -6,10 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Inspotivity.Model.Makes
+namespace Inspotivity.Model.MakeModels
 {
-    public class MakeDetail
+    public class MakeItem
     {
+        
         [Required]
         public virtual User UserId { get; set; }
         [Display(Name = "Pattern Used")]

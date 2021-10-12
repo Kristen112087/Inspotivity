@@ -58,14 +58,14 @@
     <Compile Include="FabricModels\FabricDetail.cs" />
     <Compile Include="FabricModels\FabricEdit.cs" />
     <Compile Include="FabricModels\FabricItem.cs" />
-    <Compile Include="Makes\MakeCreate.cs" />
-    <Compile Include="Makes\MakeDetail.cs" />
-    <Compile Include="Makes\MakeEdit.cs" />
-    <Compile Include="Makes\MakeItem.cs" />
-    <Compile Include="Measurements\MeasurementCreate.cs" />
-    <Compile Include="Measurements\MeasurementDelete.cs" />
-    <Compile Include="Measurements\MeasurementDetail.cs" />
-    <Compile Include="Measurements\MeasurementEdit.cs" />
+    <Compile Include="MakeModels\MakeCreate.cs" />
+    <Compile Include="MakeModels\MakeDetail.cs" />
+    <Compile Include="MakeModels\MakeEdit.cs" />
+    <Compile Include="MakeModels\MakeItem.cs" />
+    <Compile Include="MeasurementModels\MeasurementCreate.cs" />
+    <Compile Include="MeasurementModels\MeasurementDelete.cs" />
+    <Compile Include="MeasurementModels\MeasurementDetail.cs" />
+    <Compile Include="MeasurementModels\MeasurementEdit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -73,7 +73,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Patterns\" />
+    <Folder Include="PatternModels\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Inspotivity.Data\Inspotivity.Data.csproj">

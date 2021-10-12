@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Inspotivity.Model.Measurements
+namespace Inspotivity.Model.MeasurementModels
 {
    public class MeasurementDetail
     {

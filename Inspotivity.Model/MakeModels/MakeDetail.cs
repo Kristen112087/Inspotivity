@@ -6,12 +6,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Inspotivity.Model.Makes
+namespace Inspotivity.Model.MakeModels
 {
-    public class MakeCreate
+    public class MakeDetail
     {
-        [Display(Name = "Pattern Namw Used")]
-        public virtual Pattern PatternName { get; set; }
+        [Required]
+        public virtual User UserId { get; set; }
+        [Display(Name = "Pattern Used")]
+        public virtual Pattern PatternId { get; set; }
         [Display(Name = "Fabric Used")]
         public virtual Fabric FabricId { get; set; }
         [Display(Name = "Made For")]

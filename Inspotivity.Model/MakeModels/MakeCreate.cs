@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Inspotivity.Model.Makes
+namespace Inspotivity.Model.MakeModels
 {
-    public class MakeEdit
+    public class MakeCreate
     {
         [Display(Name = "Pattern Namw Used")]
         public virtual Pattern PatternName { get; set; }
