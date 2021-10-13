@@ -12,19 +12,22 @@ namespace Inspotivity.Data
     {
         [Key]
         public int MakeId { get; set; }
+
         [Required]
-        public virtual Profile UserId { get; set; }
-        [Display(Name = "Pattern Used")]
-        public virtual PaperPattern PatternId { get; set; }
-        [Display(Name = "Fabric Used")]
-        public virtual Fabric FabricId { get; set; }
-        [Display(Name = "Made For")]
-        public virtual Measurements Who { get; set; }
-        [Display(Name = "Size Made")]
+        [ForeignKey(nameof(Profile))]
+        public virtual Profile Profile { get; set; }
+
+        [ForeignKey(nameof(PaperPattern))]
+        public virtual PaperPattern PaperPattern { get; set; }
+
+        [ForeignKey(nameof(Fabric))]
+        public virtual Fabric Fabric { get; set; }
+
+        [ForeignKey(nameof(Measurements))]
+        public virtual Measurements Measurements { get; set; }
+
         public string SizeMade { get; set; }
-        [Display(Name = "Any Notes")]
         public string Notes { get; set; }
-        [Display(Name = "When Made")]
         public DateTimeOffset DateMade { get; set; }
 
     }

@@ -68,7 +68,7 @@
     <Compile Include="MeasurementModels\MeasurementItem.cs" />
     <Compile Include="PaperPatternModels\PaperPatternDetail.cs" />
     <Compile Include="PaperPatternModels\PaperPatternCreate.cs" />
-    <Compile Include="PaperPatternModels\PaperPatternDelete.cs" />
+    <Compile Include="PaperPatternModels\PaperPatternEdit.cs" />
     <Compile Include="PaperPatternModels\PaperPatternItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

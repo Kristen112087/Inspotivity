@@ -1,4 +1,5 @@
-﻿using Inspotivity.Model.PaperPatternModels;
+﻿using Inspotivity.Data;
+using Inspotivity.Model.PaperPatternModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +16,12 @@ namespace Inspotivity.Service
             _userId = userId;
         }
 
-        public bool CreatePaperPattern(PaperPatternCreate)
+        public bool CreatePaperPattern(PaperPatternCreate model)
         {
-
+            var newPaperPattern = new PaperPattern()
+            {
+                Designer = 
+            }
         }
     }
 }

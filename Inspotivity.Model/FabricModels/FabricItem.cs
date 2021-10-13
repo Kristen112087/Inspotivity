@@ -11,8 +11,10 @@ namespace Inspotivity.Model.FabricModels
     {
         [Key]
         public int FabricId { get; set; }
+
         [Display(Name = "Type Of Fabric")]
         public string FabricType { get; set; }
+
         [Display(Name = "How much on hand in Yards")]
         public double YardsOnHand { get; set; }
     }

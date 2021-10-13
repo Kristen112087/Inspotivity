@@ -62,6 +62,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Inspotivity.Data\Inspotivity.Data.csproj">
+      <Project>{07c044e6-205a-4cb6-87aa-762b55359c60}</Project>
+      <Name>Inspotivity.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Inspotivity.Model\Inspotivity.Model.csproj">
       <Project>{92e75615-7789-4f0c-a018-124bf6e69ac2}</Project>
       <Name>Inspotivity.Model</Name>

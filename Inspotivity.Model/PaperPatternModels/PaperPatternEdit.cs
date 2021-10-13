@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Inspotivity.Model.PaperPatternModels
 {
-    public class PaperPatternDelete
+    public class PaperPatternEdit
     {
         public enum PatternFor
         {
@@ -39,9 +40,10 @@ namespace Inspotivity.Model.PaperPatternModels
             public string NotionsNeeded { get; set; }
             public Enum PatternFor { get; set; }
             public Enum DifficultyLevel { get; set; }
-            [Display(Name = "Where I have it stored")]
             public string WhereStored { get; set; }
+
             [DefaultValue(false)]
             public bool HaveMade { get; set; }
         }
+    }
 }
