@@ -59,7 +59,6 @@
     <Compile Include="Make.cs" />
     <Compile Include="Measurements.cs" />
     <Compile Include="PaperPattern.cs" />
-    <Compile Include="Profile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

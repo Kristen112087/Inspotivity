@@ -30,9 +30,7 @@ namespace Inspotivity.Data
         public int PatternId { get; set; }
 
         [Required]
-        [ForeignKey(nameof(Profile))]
-        public virtual Profile Profile { get; set; }
-
+        public Guid OwnerId { get; set; }
         public string Designer { get; set; }
         public string PatternName { get; set; }
         public DateTimeOffset ReleaseDate { get; set; }
@@ -43,8 +41,8 @@ namespace Inspotivity.Data
         public string FabricTypeNeeded { get; set; }
         public double FabricRequirementInYards { get; set; }
         public string NotionsNeeded { get; set; }
-        public Enum PatternFor { get; set; }
-        public Enum DifficultyLevel{ get; set; }
+        public PatternFor PatternFor { get; set; }
+        public DifficultyLevel DifficultyLevel{ get; set; }
         public string WhereStored { get; set; }
 
         [DefaultValue(false)]

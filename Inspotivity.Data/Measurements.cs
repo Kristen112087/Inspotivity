@@ -14,8 +14,7 @@ namespace Inspotivity.Data
         public int MeasurementsId { get; set; }
 
         [Required]
-        [ForeignKey(nameof(Profile))]
-        public virtual Profile Profile { get; set; }
+        public Guid OwnerId { get; set; }
 
         [Required]
         public string Who { get; set; }

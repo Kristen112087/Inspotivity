@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using Inspotivity.Service;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +8,15 @@ using System.Web.Mvc;
 
 namespace Inspotivity.Controllers
 {
+    [Authorize]
     public class PaperPatternController : Controller
     {
+        private PaperPatternService CreatePaperPattern()
+        {
+            var userid = Guid.Parse(User.Identity.GetUserId());
+            var service = new PaperPatternService(userid);
+            return service;
+        }
         // GET: PaperPattern
         public ActionResult Index()
         {
@@ -85,13 +93,6 @@ namespace Inspotivity.Controllers
             {
                 return View();
             }
-        }
-
-        private PaperPatternService CreatePaperPatternService()
-        {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new PaperPatternService(userId);
-            return service;
         }
     }
 }

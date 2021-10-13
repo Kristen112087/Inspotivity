@@ -14,8 +14,7 @@ namespace Inspotivity.Data
         public int FabricId { get; set; }
 
         [Required]
-        [ForeignKey(nameof(Profile))]
-        public virtual Profile Profile { get; set; }
+        public Guid OwnerId { get; set; }
 
         public string FabricType { get; set; }
         public string FiberContent { get; set; }

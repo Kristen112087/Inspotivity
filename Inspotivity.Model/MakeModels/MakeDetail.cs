@@ -12,8 +12,7 @@ namespace Inspotivity.Model.MakeModels
     public class MakeDetail
     {
         [Required]
-        [ForeignKey(nameof(Profile))]
-        public virtual Profile Profile { get; set; }
+        public Guid OwnerId { get; set; }
 
         [Display(Name = "Pattern Used")]
         [ForeignKey(nameof(PaperPattern))]

@@ -14,8 +14,7 @@ namespace Inspotivity.Data
         public int MakeId { get; set; }
 
         [Required]
-        [ForeignKey(nameof(Profile))]
-        public virtual Profile Profile { get; set; }
+        public Guid OwnerId { get; set; }
 
         [ForeignKey(nameof(PaperPattern))]
         public virtual PaperPattern PaperPattern { get; set; }
