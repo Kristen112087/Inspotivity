@@ -10,17 +10,12 @@ namespace Inspotivity.Model.MakeModels
 {
     public class MakeItem
     {
-        
-        [Required]
-        public virtual User UserId { get; set; }
         [Display(Name = "Pattern Used")]
-        public virtual Pattern PatternId { get; set; }
+        public virtual PaperPattern PatternId { get; set; }
         [Display(Name = "Fabric Used")]
         public virtual Fabric FabricId { get; set; }
         [Display(Name = "Made For")]
         public virtual Measurements Who { get; set; }
-        [Display(Name = "Size Made")]
-        public string SizeMade { get; set; }
         [Display(Name = "Any Notes")]
         public string Notes { get; set; }
         [Display(Name = "When Made")]

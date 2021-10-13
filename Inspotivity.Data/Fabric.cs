@@ -12,7 +12,7 @@ namespace Inspotivity.Data
         [Key]
         public int FabricId { get; set; }
         [Required]
-        public virtual User UserId { get; set; }
+        public virtual Profile UserId { get; set; }
         [Display(Name ="Type Of Fabric")]
         public string FabricType { get; set; }
         [Display(Name = "Fiber Content")]

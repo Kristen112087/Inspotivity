@@ -13,9 +13,9 @@ namespace Inspotivity.Data
         [Key]
         public int MakeId { get; set; }
         [Required]
-        public virtual User UserId { get; set; }
+        public virtual Profile UserId { get; set; }
         [Display(Name = "Pattern Used")]
-        public virtual Pattern PatternId { get; set; }
+        public virtual PaperPattern PatternId { get; set; }
         [Display(Name = "Fabric Used")]
         public virtual Fabric FabricId { get; set; }
         [Display(Name = "Made For")]

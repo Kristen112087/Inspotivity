@@ -12,7 +12,7 @@ namespace Inspotivity.Data
         [Key]
         public int MeasurementsId { get; set; }
         [Required]
-        public virtual User UserId { get; set; }
+        public virtual Profile UserId { get; set; }
         [Required]
         public string Who { get; set; }
         public double Height { get; set; }

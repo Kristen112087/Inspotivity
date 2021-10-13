@@ -63,18 +63,20 @@
     <Compile Include="MakeModels\MakeEdit.cs" />
     <Compile Include="MakeModels\MakeItem.cs" />
     <Compile Include="MeasurementModels\MeasurementCreate.cs" />
-    <Compile Include="MeasurementModels\MeasurementDelete.cs" />
     <Compile Include="MeasurementModels\MeasurementDetail.cs" />
     <Compile Include="MeasurementModels\MeasurementEdit.cs" />
+    <Compile Include="MeasurementModels\MeasurementItem.cs" />
+    <Compile Include="PaperPatternModels\PaperPatternDetail.cs" />
+    <Compile Include="PaperPatternModels\PaperPatternCreate.cs" />
+    <Compile Include="PaperPatternModels\PaperPatternDelete.cs" />
+    <Compile Include="PaperPatternModels\PaperPatternItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="PatternModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Inspotivity.Data\Inspotivity.Data.csproj">
       <Project>{07c044e6-205a-4cb6-87aa-762b55359c60}</Project>

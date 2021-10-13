@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Inspotivity.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -7,9 +8,12 @@ using System.Threading.Tasks;
 
 namespace Inspotivity.Model.MeasurementModels
 {
-    public class MeasurementDelete
+    public class MeasurementItem
     {
         [Required]
+        public virtual Profile UserId { get; set; }
+        [Required]
         public string Who { get; set; }
+        
     }
 }

@@ -23,12 +23,12 @@ namespace Inspotivity.Data
         Advanced,
         Expert
     }
-    public class Pattern
+    public class PaperPattern
     {
         [Key]
         public int PatternId { get; set; }
         [Required]
-        public virtual User UserId { get; set; }
+        public virtual Profile UserId { get; set; }
         public string Designer { get; set; }
         public string PatternName { get; set; }
         public DateTimeOffset ReleaseDate { get; set; }
@@ -41,9 +41,9 @@ namespace Inspotivity.Data
         public string NotionsNeeded { get; set; }
         public Enum PatternFor { get; set; }
         public Enum DifficultyLevel{ get; set; }
-        [DefaultValue(false)]
-        public bool HaveMade { get; set; }
         [Display(Name = "Where I have it stored")]
         public string WhereStored { get; set; }
+        [DefaultValue(false)]
+        public bool HaveMade { get; set; }
     }
 }

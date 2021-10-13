@@ -11,7 +11,7 @@ namespace Inspotivity.Model.MakeModels
     public class MakeEdit
     {
         [Display(Name = "Pattern Namw Used")]
-        public virtual Pattern PatternName { get; set; }
+        public virtual PaperPattern PatternName { get; set; }
         [Display(Name = "Fabric Used")]
         public virtual Fabric FabricId { get; set; }
         [Display(Name = "Made For")]

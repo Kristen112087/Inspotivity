@@ -32,7 +32,7 @@ namespace Inspotivity.Data
             return new ApplicationDbContext();
         }
 
-        public DbSet<Pattern> Pattern { get; set; }
+        public DbSet<PaperPattern> Pattern { get; set; }
         public DbSet<Fabric> Fabrics { get; set; }
         public DbSet<Make> Makes { get; set; }
         public DbSet<Measurements> Measurements { get; set; }
