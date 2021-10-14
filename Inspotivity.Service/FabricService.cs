@@ -37,7 +37,7 @@ namespace Inspotivity.Service
             }
         }
 
-        //Read
+        //Read All
         public IEnumerable<FabricItem> GetAllFabric()
         {
             using(var database = new ApplicationDbContext())

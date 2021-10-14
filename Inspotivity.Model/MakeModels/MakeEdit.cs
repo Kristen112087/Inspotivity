@@ -11,6 +11,8 @@ namespace Inspotivity.Model.MakeModels
 {
     public class MakeEdit
     {
+        public int MakeId { get; set; }
+
         [Display(Name = "Pattern Used")]
         [ForeignKey(nameof(PaperPattern))]
         public virtual PaperPattern PaperPattern { get; set; }
