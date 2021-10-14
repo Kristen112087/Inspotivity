@@ -1,4 +1,5 @@
-﻿using Inspotivity.Service;
+﻿using Inspotivity.Model.PaperPatternModels;
+using Inspotivity.Service;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -41,40 +42,50 @@ namespace Inspotivity.Controllers
 
         // POST: PaperPattern/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(PaperPatternCreate model)
         {
-            try
-            {
-                // TODO: Add insert logic here
+            if (!ModelState.IsValid) return View(model);
 
+            var service = CreatePaperPatternService();
+
+            if (service.CreatePaperPattern(model))
+            {
+                TempData["SaveResult"] = "Your pattern was created.";
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            ModelState.AddModelError("", "Pattern could not be created");
+            return View(model);
         }
 
         // GET: PaperPattern/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var service = CreatePaperPatternService();
+            var model = service.GetPaperPatternById(id);
+
+            return View(model);
         }
 
         // POST: PaperPattern/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, PaperPatternEdit model)
         {
-            try
-            {
-                // TODO: Add update logic here
+            if (!ModelState.IsValid) return View(model);
 
+            if(model.PaperPatternId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+            var service = CreatePaperPatternService();
+            if (service.UpdatePaperPattern(model))
+            {
+                TempData["SaveResult"] = "Your pattern was updated";
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            ModelState.AddModelError("", "Your pattern could not be updated");
+            return View(model);
         }
 
         // GET: PaperPattern/Delete/5
@@ -107,3 +118,4 @@ namespace Inspotivity.Controllers
         }
     }
 }
+

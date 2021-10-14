@@ -63,7 +63,7 @@ namespace Inspotivity.Service
         {
             using (var database = new ApplicationDbContext())
             {
-                var pattern = database.PaperPatterns.Single(p => p.PatternId == id);
+                var pattern = database.PaperPatterns.Single(p => p.PaperPatternId == id);
 
                 var service = new PaperPatternService(_UserId);
                 var paperPatterns = service.GetPaperPatternById(id);
@@ -92,7 +92,7 @@ namespace Inspotivity.Service
         {
             using (var database = new ApplicationDbContext())
             {
-                var pattern = database.PaperPatterns.Single(p => p.PatternId == model.PatternId);
+                var pattern = database.PaperPatterns.Single(p => p.PaperPatternId == model.PaperPatternId);
 
                 pattern.Designer = model.Designer;
                 pattern.PatternName = model.PatternName;
@@ -117,7 +117,7 @@ namespace Inspotivity.Service
         {
             using (var database = new ApplicationDbContext())
             {
-                var pattern = database.PaperPatterns.Single(p => p.PatternId == patternId && p.OwnerId == _UserId);
+                var pattern = database.PaperPatterns.Single(p => p.PaperPatternId == patternId && p.OwnerId == _UserId);
                 database.PaperPatterns.Remove(pattern);
 
                 return database.SaveChanges() == 1;

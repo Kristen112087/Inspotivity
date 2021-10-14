@@ -27,7 +27,7 @@ namespace Inspotivity.Data
     public class PaperPattern
     {
         [Key]
-        public int PatternId { get; set; }
+        public int PaperPatternId { get; set; }
 
         [Required]
         public Guid OwnerId { get; set; }
