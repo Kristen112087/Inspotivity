@@ -94,5 +94,12 @@ namespace Inspotivity.Controllers
                 return View();
             }
         }
+
+        private PaperPatternService CreatePaperPatternService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new PaperPatternService(userId);
+            return service;
+        }
     }
 }
