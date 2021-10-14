@@ -17,12 +17,15 @@ namespace Inspotivity.Data
         public Guid OwnerId { get; set; }
 
         [ForeignKey(nameof(PaperPattern))]
+        public int PaperPatternId { get; set; }
         public virtual PaperPattern PaperPattern { get; set; }
 
         [ForeignKey(nameof(Fabric))]
+        public int FabricId { get; set; }
         public virtual Fabric Fabric { get; set; }
 
         [ForeignKey(nameof(Measurements))]
+        public int MeasurementsId { get; set; }
         public virtual Measurements Measurements { get; set; }
 
         public string SizeMade { get; set; }
