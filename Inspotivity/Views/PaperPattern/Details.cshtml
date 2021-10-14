@@ -1,4 +1,4 @@
-﻿@model Inspotivity.Model.PaperPatternModels.PaperPatternDetail
+﻿@model IEnumerable<Inspotivity.Model.PaperPatternModels.PaperPatternDetail>
 
 @{
     ViewBag.Title = "Details";
@@ -6,109 +6,94 @@
 
 <h2>Details</h2>
 
-<div>
-    <h4>PaperPatternDetail</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Designer)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Designer)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PatternName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PatternName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ReleaseDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ReleaseDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PurchaseDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PurchaseDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PatternURL)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PatternURL)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PatternNumber)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PatternNumber)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Category)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Category)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FabricTypeNeeded)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FabricTypeNeeded)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FabricRequirementInYards)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FabricRequirementInYards)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NotionsNeeded)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NotionsNeeded)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.WhereStored)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.WhereStored)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.HaveMade)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.HaveMade)
-        </dd>
-
-    </dl>
-</div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.PaperPatternId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Create New", "Create")
 </p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Designer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PatternName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReleaseDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PurchaseDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PatternURL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PatternNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FabricTypeNeeded)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FabricRequirementInYards)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NotionsNeeded)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WhereStored)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HaveMade)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Designer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PatternName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReleaseDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PurchaseDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PatternURL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PatternNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FabricTypeNeeded)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FabricRequirementInYards)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NotionsNeeded)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WhereStored)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HaveMade)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PaperPatternId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PaperPatternId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PaperPatternId })
+        </td>
+    </tr>
+}
+
+</table>

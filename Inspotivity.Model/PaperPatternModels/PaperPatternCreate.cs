@@ -25,7 +25,6 @@ namespace Inspotivity.Model.PaperPatternModels
             Advanced,
             Expert
         }
-
         [Key]
         public int PaperPatternId { get; set; }
         public string Designer { get; set; }
@@ -44,10 +43,8 @@ namespace Inspotivity.Model.PaperPatternModels
         public string FabricTypeNeeded { get; set; }
         public double FabricRequirementInYards { get; set; }
         public string NotionsNeeded { get; set; }
-
         [Display(Name = "Where I have it stored")]
         public string WhereStored { get; set; }
-
         [DefaultValue(false)]
         public bool HaveMade { get; set; }
         

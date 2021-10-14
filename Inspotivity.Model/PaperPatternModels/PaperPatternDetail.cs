@@ -47,7 +47,5 @@ namespace Inspotivity.Model.PaperPatternModels
         public string WhereStored { get; set; }
         [DefaultValue(false)]
         public bool HaveMade { get; set; }
-        
     }
 }
-

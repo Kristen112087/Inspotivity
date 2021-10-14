@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Inspotivity.Model.PaperPatternModels.PaperPatternItem;
 
 namespace Inspotivity.Service
 {
@@ -43,11 +44,11 @@ namespace Inspotivity.Service
         }
 
         //Read
-        public IEnumerable<PaperPatternItem> GetPaperPatterns()
+        public IEnumerable<PaperPatternItems> GetPaperPatterns()
         {
             using (var database = new ApplicationDbContext())
             {
-                var query = database.PaperPatterns.Where(p => p.OwnerId == _UserId).Select(p => new PaperPatternItem()
+                var query = database.PaperPatterns.Where(p => p.OwnerId == _UserId).Select(p => new PaperPatternItems()
                 {
                     Designer = p.Designer,
                     PatternName = p.PatternName,

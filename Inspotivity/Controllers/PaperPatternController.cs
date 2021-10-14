@@ -18,28 +18,15 @@ namespace Inspotivity.Controllers
             var service = new PaperPatternService(userid);
             return service;
         }
-        // GET: PaperPattern
-        public ActionResult Index()
-        {
-            var service = CreatePaperPatternService();
-            var model = service.GetPaperPatterns();
-            return View();
-        }
 
-        // GET: PaperPattern/Details/1
-        public ActionResult Details(int id)
-        {
-            var service = CreatePaperPatternService();
-            var model = service.GetPaperPatternById(id);
-            return View(model);
-        }
+
+
 
         // GET: PaperPattern/Create
         public ActionResult Create()
         {
             return View();
         }
-
         // POST: PaperPattern/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -57,6 +44,36 @@ namespace Inspotivity.Controllers
             ModelState.AddModelError("", "Pattern could not be created");
             return View(model);
         }
+
+
+
+
+        // GET: PaperPattern
+        public ActionResult Index()
+        {
+            var service = CreatePaperPatternService();
+            var model = service.GetPaperPatterns();
+            return View();
+        }
+
+
+
+
+
+        // GET: PaperPattern/Details/1
+        public ActionResult Details(int id)
+        {
+            var service = CreatePaperPatternService();
+            var model = service.GetPaperPatternById(id);
+
+            return View(model);
+        }
+
+
+
+
+
+
 
         // GET: PaperPattern/Edit/5
         public ActionResult Edit(int id)
@@ -80,7 +97,6 @@ namespace Inspotivity.Controllers
             };
             return View(model);
         }
-
         // POST: PaperPattern/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, PaperPatternEdit model)
@@ -102,27 +118,42 @@ namespace Inspotivity.Controllers
             return View(model);
         }
 
+
+
+
+
+
+
+
         // GET: PaperPattern/Delete/5
+        [ActionName("Delete")]
         public ActionResult Delete(int id)
         {
-            return View();
+            var service = CreatePaperPatternService();
+            var model = service.GetPaperPatternById(id);
+
+            return View(model);
         }
 
         // POST: PaperPattern/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePaperPattern(int id, FormCollection collection)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            var service = CreatePaperPatternService();
+            service.DeletePaperPattern(id);
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            TempData["SaveResult"] = "Your pattern was deleted";
+
+            return RedirectToAction("Index");
         }
+
+
+
+
+
+
 
         private PaperPatternService CreatePaperPatternService()
         {
@@ -132,4 +163,3 @@ namespace Inspotivity.Controllers
         }
     }
 }
-
