@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FabricService.cs" />
     <Compile Include="PaperPatternService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

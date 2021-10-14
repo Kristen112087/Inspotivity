@@ -37,7 +37,7 @@ namespace Inspotivity.Service
 
             using (var database = new ApplicationDbContext())
             {
-                database.PaperPattern.Add(pattern);
+                database.PaperPatterns.Add(pattern);
                 return database.SaveChanges() == 1;
             }
         }
@@ -47,7 +47,7 @@ namespace Inspotivity.Service
         {
             using (var database = new ApplicationDbContext())
             {
-                var query = database.PaperPattern.Where(p => p.OwnerId == _UserId).Select(p => new PaperPatternItem()
+                var query = database.PaperPatterns.Where(p => p.OwnerId == _UserId).Select(p => new PaperPatternItem()
                 {
                     Designer = p.Designer,
                     PatternName = p.PatternName,
@@ -63,7 +63,7 @@ namespace Inspotivity.Service
         {
             using (var database = new ApplicationDbContext())
             {
-                var pattern = database.PaperPattern.Single(p => p.PatternId == id);
+                var pattern = database.PaperPatterns.Single(p => p.PatternId == id);
 
                 var service = new PaperPatternService(_UserId);
                 var paperPatterns = service.GetPaperPatternById(id);
@@ -92,7 +92,7 @@ namespace Inspotivity.Service
         {
             using (var database = new ApplicationDbContext())
             {
-                var pattern = database.PaperPattern.Single(p => p.PatternId == model.PatternId);
+                var pattern = database.PaperPatterns.Single(p => p.PatternId == model.PatternId);
 
                 pattern.Designer = model.Designer;
                 pattern.PatternName = model.PatternName;
@@ -117,8 +117,8 @@ namespace Inspotivity.Service
         {
             using (var database = new ApplicationDbContext())
             {
-                var pattern = database.PaperPattern.Single(p => p.PatternId == patternId && p.OwnerId == _UserId);
-                database.PaperPattern.Remove(pattern);
+                var pattern = database.PaperPatterns.Single(p => p.PatternId == patternId && p.OwnerId == _UserId);
+                database.PaperPatterns.Remove(pattern);
 
                 return database.SaveChanges() == 1;
             }
