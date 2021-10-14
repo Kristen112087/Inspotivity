@@ -14,6 +14,9 @@ namespace Inspotivity.Model.PaperPatternModels
     {
         [Required]
         public Guid OwnerId { get; set; }
+        [Key]
+        public int PatternId { get; set; }
+
         public string Designer { get; set; }
         public string PatternName { get; set; }
 

@@ -26,7 +26,7 @@ namespace Inspotivity.Model.PaperPatternModels
             Advanced,
             Expert
         }
-
+        [Key]
         public int PatternId { get; set; }
         public string Designer { get; set; }
         public string PatternName { get; set; }

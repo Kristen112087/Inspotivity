@@ -20,13 +20,17 @@ namespace Inspotivity.Controllers
         // GET: PaperPattern
         public ActionResult Index()
         {
+            var service = CreatePaperPatternService();
+            var model = service.GetPaperPatterns();
             return View();
         }
 
-        // GET: PaperPattern/Details/5
+        // GET: PaperPattern/Details/1
         public ActionResult Details(int id)
         {
-            return View();
+            var service = CreatePaperPatternService();
+            var model = service.GetPaperPatternById(id);
+            return View(model);
         }
 
         // GET: PaperPattern/Create
