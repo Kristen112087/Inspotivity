@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FabricService.cs" />
+    <Compile Include="MakeService.cs" />
     <Compile Include="MeasurementService.cs" />
     <Compile Include="PaperPatternService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -9,6 +9,7 @@ namespace Inspotivity.Model.MeasurementModels
 {
     public class MeasurementEdit
     {
+        public int MeasurementsId { get; set; }
         public string Who { get; set; }
         public double Height { get; set; }
         public double HeadCircumference { get; set; }
