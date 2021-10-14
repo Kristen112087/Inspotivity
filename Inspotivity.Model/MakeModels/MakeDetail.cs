@@ -33,6 +33,8 @@ namespace Inspotivity.Model.MakeModels
         public string Notes { get; set; }
 
         [Display(Name = "When Made")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)] // added for date picker
         public DateTimeOffset DateMade { get; set; }
     }
 }

@@ -62,8 +62,22 @@ namespace Inspotivity.Controllers
         public ActionResult Edit(int id)
         {
             var service = CreatePaperPatternService();
-            var model = service.GetPaperPatternById(id);
-
+            var detail = service.GetPaperPatternById(id);
+            var model = new PaperPatternEdit
+            {
+                Designer = detail.Designer,
+                PatternName = detail.PatternName,
+                ReleaseDate = detail.ReleaseDate,
+                PurchaseDate = detail.PurchaseDate,
+                PatternURL = detail.PatternURL,
+                PatternNumber = detail.PatternNumber,
+                Category = detail.Category,
+                FabricTypeNeeded = detail.FabricTypeNeeded,
+                FabricRequirementInYards = detail.FabricRequirementInYards,
+                NotionsNeeded = detail.NotionsNeeded,
+                WhereStored = detail.WhereStored,
+                HaveMade = detail.HaveMade
+            };
             return View(model);
         }
 

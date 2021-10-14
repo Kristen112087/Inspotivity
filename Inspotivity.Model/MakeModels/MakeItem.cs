@@ -25,6 +25,9 @@ namespace Inspotivity.Model.MakeModels
 
         [Display(Name = "Any Notes")]
         public string Notes { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)] // added for date picker
         public DateTimeOffset DateMade { get; set; }
     }
 }

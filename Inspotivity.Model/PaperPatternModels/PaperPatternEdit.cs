@@ -30,7 +30,13 @@ namespace Inspotivity.Model.PaperPatternModels
         public int PaperPatternId { get; set; }
         public string Designer { get; set; }
         public string PatternName { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)] // added for date picker
         public DateTimeOffset ReleaseDate { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)] // added for date picker
         public DateTimeOffset PurchaseDate { get; set; }
         public string PatternURL { get; set; }
         public string PatternNumber { get; set; }
