@@ -51,7 +51,59 @@ namespace Inspotivity.Service
             }
         }
 
+        //Read by Id
+        public FabricDetail GetFabricById(int id)
+        {
+            using(var database = new ApplicationDbContext())
+            {
+                var fabric = database.Fabrics.Single(f => f.FabricId == id);
 
+                var service = new FabricService(_UserId);
+                var singleFabric = service.GetFabricById(id);
+
+                return new FabricDetail()
+                {
+                    FabricType = fabric.FabricType,
+                    FiberContent = fabric.FiberContent,
+                    WeightPerYard = fabric.WeightPerYard,
+                    DatePurchased = fabric.DatePurchased,
+                    PricePerYard = fabric.PricePerYard,
+                    StretchPercentage = fabric.StretchPercentage,
+                    YardsOnHand = fabric.YardsOnHand
+                };
+            }
+        }
+
+        //Update by Id
+        public bool UpdateFabric(FabricEdit model)
+        {
+            using(var database = new ApplicationDbContext())
+            {
+                var fabric = database.Fabrics.Single(f => f.FabricId == model.FabricId);
+
+                fabric.FabricType = model.FabricType;
+                fabric.FiberContent = model.FiberContent;
+                fabric.WeightPerYard = model.WeightPerYard;
+                fabric.DatePurchased = model.DatePurchased;
+                fabric.PricePerYard = model.PricePerYard;
+                fabric.StretchPercentage = model.StretchPercentage;
+                fabric.YardsOnHand = model.YardsOnHand;
+
+                return database.SaveChanges() == 1;
+            };
+        }
+
+        //Delete by Id
+        public bool DeleteFabric(int fabricId)
+        {
+            using(var database = new ApplicationDbContext())
+            {
+                var fabric = database.Fabrics.Single(f => f.FabricId == fabricId && f.OwnerId == _UserId);
+                database.Fabrics.Remove(fabric);
+
+                return database.SaveChanges() == 1;
+            }
+        }
 
     }
 }
