@@ -1,4 +1,4 @@
-﻿@model List<Inspotivity.Model.PaperPatternModels.PaperPatternDetail>
+﻿@model Inspotivity.Model.PaperPatternModels.PaperPatternDetail
 
 @{
     ViewBag.Title = "Details";
@@ -6,94 +6,39 @@
 
 <h2>Details</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    @*<tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Designer)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PatternName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ReleaseDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PurchaseDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PatternURL)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PatternNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Category)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FabricTypeNeeded)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FabricRequirementInYards)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NotionsNeeded)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.WhereStored)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HaveMade)
-        </th>
-        <th></th>
-    </tr>*@
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Designer)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PatternName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ReleaseDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PurchaseDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PatternURL)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PatternNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Category)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FabricTypeNeeded)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FabricRequirementInYards)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NotionsNeeded)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.WhereStored)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HaveMade)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.PaperPatternId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.PaperPatternId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.PaperPatternId })
-        </td>
-    </tr>
-}
 
-</table>
+
+<div>
+    <strong>@Html.DisplayNameFor(model => model.Designer):</strong>  @Html.DisplayFor(model => model.Designer)
+</div>
+<div>
+    <strong>@Html.DisplayNameFor(model => model.PatternName):</strong>  @Html.DisplayFor(model => model.PatternName)
+</div>
+<div>
+    <strong>@Html.DisplayNameFor(model => model.PurchaseDate):</strong>  @Html.DisplayFor(model => model.PurchaseDate)
+</div>
+<div>
+    <strong>@Html.DisplayNameFor(model => model.PatternNumber):</strong>  @Html.DisplayFor(model => model.PatternNumber)
+</div>
+<div>
+    <strong>@Html.DisplayNameFor(model => model.Category):</strong>  @Html.DisplayFor(model => model.Category)
+</div>
+<div>
+    <strong>@Html.DisplayNameFor(model => model.FabricTypeNeeded):</strong>  @Html.DisplayFor(model => model.FabricTypeNeeded)
+</div>
+<div>
+    <strong>@Html.DisplayNameFor(model => model.FabricRequirementInYards):</strong>  @Html.DisplayFor(model => model.FabricRequirementInYards)
+</div>
+<div>
+    <strong>@Html.DisplayNameFor(model => model.NotionsNeeded):</strong>  @Html.DisplayFor(model => model.NotionsNeeded)
+</div>
+<div>
+    <strong>@Html.DisplayNameFor(model => model.WhereStored):</strong>  @Html.DisplayFor(model => model.WhereStored)
+</div>
+<div>
+    <strong>@Html.DisplayNameFor(model => model.HaveMade):</strong>  @Html.DisplayFor(model => model.HaveMade)
+</div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

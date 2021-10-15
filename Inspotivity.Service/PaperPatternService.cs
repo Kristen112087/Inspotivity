@@ -73,7 +73,8 @@ namespace Inspotivity.Service
 
                 return new PaperPatternDetail
                 {
-                    //PaperPatternId = _UserId,
+                    OwnerId = _UserId,
+                    PaperPatternId = pattern.PaperPatternId,
                     Designer = pattern.Designer,
                     PatternName = pattern.PatternName,
                     ReleaseDate = pattern.ReleaseDate,
@@ -111,8 +112,9 @@ namespace Inspotivity.Service
                 pattern.NotionsNeeded = model.NotionsNeeded;
                 pattern.WhereStored = model.WhereStored;
                 pattern.HaveMade = model.HaveMade;
-
-                return database.SaveChanges() == 1;
+                var savedObjectCount = database.SaveChanges();
+                return savedObjectCount == 1;
+               
             }
         }
 

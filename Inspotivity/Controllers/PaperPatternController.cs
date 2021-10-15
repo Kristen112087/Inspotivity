@@ -82,6 +82,7 @@ namespace Inspotivity.Controllers
             var detail = service.GetPaperPatternById(id);
             var model = new PaperPatternEdit
             {
+                PaperPatternId = detail.PaperPatternId,
                 Designer = detail.Designer,
                 PatternName = detail.PatternName,
                 ReleaseDate = detail.ReleaseDate,

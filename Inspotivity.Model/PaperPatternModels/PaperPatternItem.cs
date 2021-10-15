@@ -11,11 +11,10 @@ namespace Inspotivity.Model.PaperPatternModels
 {
     public class PaperPatternItem
     {
-
-        [Key]
-        public int PaperPatternId { get; set; }
         [ForeignKey(nameof(Guid))]
         public virtual Guid OwnerId { get; set; }
+        [Key]
+        public int PaperPatternId { get; set; }
 
         public string Designer { get; set; }
         public string PatternName { get; set; }
