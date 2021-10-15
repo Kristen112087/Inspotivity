@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,8 @@ namespace Inspotivity.Model.FabricModels
 {
     public class FabricDetail
     {
+        [ForeignKey(nameof(Guid))]
+        public virtual Guid OwnerId { get; set; }
         public int FabricId { get; set; }
         public string FabricType { get; set; }
 

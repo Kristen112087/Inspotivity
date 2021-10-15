@@ -21,6 +21,7 @@ namespace Inspotivity.Service
         {
             var fabric = new Fabric()
             {
+                OwnerId = _UserId,
                 FabricType = model.FabricType,
                 FiberContent = model.FiberContent,
                 WeightPerYard = model.WeightPerYard,
@@ -44,10 +45,12 @@ namespace Inspotivity.Service
             {
                 var query = database.Fabrics.Where(f => f.OwnerId == _UserId).Select(f => new FabricItem()
                 {
+                    OwnerId = _UserId,
+                    FabricId = f.FabricId,
                     FabricType = f.FabricType,
                     YardsOnHand = f.YardsOnHand
                 });
-                return query.ToArray();
+                return query.ToList();
             }
         }
 
@@ -58,11 +61,13 @@ namespace Inspotivity.Service
             {
                 var fabric = database.Fabrics.Single(f => f.FabricId == id);
 
-                var service = new FabricService(_UserId);
-                var singleFabric = service.GetFabricById(id);
+                //var service = new FabricService(_UserId);
+                //var singleFabric = service.GetFabricById(id);
 
                 return new FabricDetail()
                 {
+                    OwnerId = _UserId,
+                    FabricId = fabric.FabricId,
                     FabricType = fabric.FabricType,
                     FiberContent = fabric.FiberContent,
                     WeightPerYard = fabric.WeightPerYard,
@@ -81,6 +86,8 @@ namespace Inspotivity.Service
             {
                 var fabric = database.Fabrics.Single(f => f.FabricId == model.FabricId);
 
+                fabric.OwnerId = _UserId;
+                fabric.FabricId = model.FabricId;
                 fabric.FabricType = model.FabricType;
                 fabric.FiberContent = model.FiberContent;
                 fabric.WeightPerYard = model.WeightPerYard;
@@ -88,8 +95,8 @@ namespace Inspotivity.Service
                 fabric.PricePerYard = model.PricePerYard;
                 fabric.StretchPercentage = model.StretchPercentage;
                 fabric.YardsOnHand = model.YardsOnHand;
-
-                return database.SaveChanges() == 1;
+                var savedObjectCount = database.SaveChanges();
+                return savedObjectCount == 1;
             };
         }
 
@@ -100,10 +107,29 @@ namespace Inspotivity.Service
             {
                 var fabric = database.Fabrics.Single(f => f.FabricId == fabricId && f.OwnerId == _UserId);
                 database.Fabrics.Remove(fabric);
-
                 return database.SaveChanges() == 1;
             }
         }
 
+        //Delete By Id
+        public FabricEdit DeletebyId(int id)
+        {
+            using(var database = new ApplicationDbContext())
+            {
+                var fabric = database.Fabrics.Single(f => f.FabricId == id);
+                return new FabricEdit
+                {
+                    OwnerId = _UserId,
+                    FabricId = fabric.FabricId,
+                    FabricType = fabric.FabricType,
+                    FiberContent = fabric.FiberContent,
+                    WeightPerYard = fabric.WeightPerYard,
+                    DatePurchased = fabric.DatePurchased,
+                    PricePerYard = fabric.PricePerYard,
+                    StretchPercentage = fabric.StretchPercentage,
+                    YardsOnHand = fabric.YardsOnHand
+                };
+            }
+        }
     }
 }

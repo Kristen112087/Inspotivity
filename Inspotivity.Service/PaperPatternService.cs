@@ -43,7 +43,7 @@ namespace Inspotivity.Service
             }
         }
 
-        //Read
+        //Read All
         public IEnumerable<PaperPatternItem> GetPaperPatterns()
         {
             using (var database = new ApplicationDbContext())
@@ -55,7 +55,6 @@ namespace Inspotivity.Service
                     Designer = p.Designer,
                     PatternName = p.PatternName,
                     HaveMade = p.HaveMade
-
                 });
                 return query.ToList();
             }
@@ -130,7 +129,7 @@ namespace Inspotivity.Service
             }
         }
 
-        //Read By Id
+        //Delete By Id
         public PaperPatternEdit DeleteById(int id)
         {
             using (var database = new ApplicationDbContext())
