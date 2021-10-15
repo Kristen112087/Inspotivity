@@ -117,7 +117,7 @@ namespace Inspotivity.Service
             }
         }
 
-        // Delete By Id
+        // Delete
 
         public bool DeletePaperPattern(int patternId)
         {
