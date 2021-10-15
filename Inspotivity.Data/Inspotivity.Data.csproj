@@ -54,7 +54,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Fabric.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Make.cs" />
+    <Compile Include="Measurements.cs" />
+    <Compile Include="PaperPattern.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

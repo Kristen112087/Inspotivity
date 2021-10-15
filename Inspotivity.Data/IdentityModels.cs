@@ -1,4 +1,6 @@
 ﻿using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -28,6 +30,42 @@ namespace Inspotivity.Data
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
+        }
+
+        public DbSet<PaperPattern> PaperPatterns { get; set; }
+        public DbSet<Fabric> Fabrics { get; set; }
+        public DbSet<Make> Makes { get; set; }
+        public DbSet<Measurements> Measurements { get; set; }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            modelBuilder.Configurations.Add(new IdentityUserLoginConfiguration()).Add(new IdentityUserRoleConfiguration());
+        }
+
+        //public System.Data.Entity.DbSet<Inspotivity.Model.PaperPatternModels.PaperPatternEdit> PaperPatternEdits { get; set; }
+
+        //public System.Data.Entity.DbSet<Inspotivity.Model.PaperPatternModels.PaperPatternDetail> PaperPatternDetails { get; set; }
+
+        //public System.Data.Entity.DbSet<Inspotivity.Model.PaperPatternModels.PaperPatternEdit> PaperPatternEdits { get; set; }
+
+        //public System.Data.Entity.DbSet<Inspotivity.Model.PaperPatternModels.PaperPatternDetail> PaperPatternDetails { get; set; }
+
+        //public System.Data.Entity.DbSet<Inspotivity.Model.PaperPatternModels.PaperPatternItem> PaperPatternItems { get; set; }
+    }
+
+    public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
+    {
+        public IdentityUserLoginConfiguration()
+        {
+            HasKey(iul => iul.UserId);
+        }
+    }
+    
+    public class IdentityUserRoleConfiguration : EntityTypeConfiguration<IdentityUserRole>
+    {
+        public IdentityUserRoleConfiguration()
+        {
+            HasKey(iur => iur.UserId);
         }
     }
 }
