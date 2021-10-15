@@ -11,6 +11,8 @@ namespace Inspotivity.Model.MakeModels
 {
     public class MakeEdit
     {
+        [ForeignKey(nameof(Guid))]
+        public virtual Guid OwnerId { get; set; }
         public int MakeId { get; set; }
 
         [Display(Name = "Pattern Used")]

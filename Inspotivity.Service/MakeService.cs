@@ -21,6 +21,7 @@ namespace Inspotivity.Service
         {
             var make = new Make()
             {
+                OwnerId = _UserId,
                 PaperPattern = model.PaperPattern,
                 Fabric = model.Fabric,
                 Measurements = model.Measurements,
@@ -43,6 +44,7 @@ namespace Inspotivity.Service
             {
                 var query = database.Makes.Where(m => m.OwnerId == _UserId).Select(m => new MakeItem()
                 {
+                    OwnerId = _UserId,
                     PaperPattern = m.PaperPattern,
                     Fabric = m.Fabric,
                     Measurements = m.Measurements,
@@ -60,11 +62,12 @@ namespace Inspotivity.Service
             {
                 var make = database.Makes.Single(m => m.MakeId == id);
 
-                var service = new MakeService(_UserId);
-                var singleMake = service.GetMakeById(id);
+                //var service = new MakeService(_UserId);
+                //var singleMake = service.GetMakeById(id);
 
                 return new MakeDetail()
                 {
+                    OwnerId = _UserId,
                     PaperPattern = make.PaperPattern,
                     Fabric = make.Fabric,
                     Measurements = make.Measurements,
@@ -82,26 +85,45 @@ namespace Inspotivity.Service
             {
                 var make = database.Makes.Single(m => m.MakeId == model.MakeId);
 
+                make.OwnerId = _UserId;
                 make.PaperPattern = model.PaperPattern;
                 make.Fabric = model.Fabric;
                 make.Measurements = model.Measurements;
                 make.SizeMade = model.SizeMade;
                 make.Notes = model.Notes;
                 make.DateMade = model.DateMade;
-
-                return database.SaveChanges() == 1;
+                var savedObjectCount = database.SaveChanges();
+                return savedObjectCount == 1;
             }
         }
 
-        //Delete by Id
+        //Delete
         public bool DeleteMake(int makeId)
         {
             using (var database = new ApplicationDbContext())
             {
                 var make = database.Makes.Single(m => m.MakeId == makeId && m.OwnerId == _UserId);
                 database.Makes.Remove(make);
-
                 return database.SaveChanges() == 1;
+            }
+        }
+
+        //Delete By Id
+        public MakeEdit DeleteById(int id)
+        {
+            using(var database = new ApplicationDbContext())
+            {
+                var make = database.Makes.Single(m => m.MakeId == id);
+                return new MakeEdit
+                {
+                    OwnerId = _UserId,
+                    PaperPattern = make.PaperPattern,
+                    Fabric = make.Fabric,
+                    Measurements = make.Measurements,
+                    SizeMade = make.SizeMade,
+                    Notes = make.Notes,
+                    DateMade = make.DateMade
+                };
             }
         }
     }
