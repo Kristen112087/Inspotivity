@@ -132,7 +132,7 @@ namespace Inspotivity.Controllers
         public ActionResult Delete(int id)
         {
             var service = CreatePaperPatternService();
-            var model = service.GetPaperPatternById(id);
+            var model = service.DeleteById(id);
 
             return View(model);
         }

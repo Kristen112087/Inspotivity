@@ -126,8 +126,37 @@ namespace Inspotivity.Service
             {
                 var pattern = database.PaperPatterns.Single(p => p.PaperPatternId == patternId && p.OwnerId == _UserId);
                 database.PaperPatterns.Remove(pattern);
-
                 return database.SaveChanges() == 1;
+            }
+        }
+
+        //Read By Id
+        public PaperPatternEdit DeleteById(int id)
+        {
+            using (var database = new ApplicationDbContext())
+            {
+                var pattern = database.PaperPatterns.Single(p => p.PaperPatternId == id);
+
+                //var service = new PaperPatternService(_UserId);
+                //var paperPatterns = service.GetPaperPatternById(id);
+
+                return new PaperPatternEdit
+                {
+                    OwnerId = _UserId,
+                    PaperPatternId = pattern.PaperPatternId,
+                    Designer = pattern.Designer,
+                    PatternName = pattern.PatternName,
+                    ReleaseDate = pattern.ReleaseDate,
+                    PurchaseDate = pattern.PurchaseDate,
+                    PatternURL = pattern.PatternURL,
+                    PatternNumber = pattern.PatternNumber,
+                    Category = pattern.Category,
+                    FabricTypeNeeded = pattern.FabricTypeNeeded,
+                    FabricRequirementInYards = pattern.FabricRequirementInYards,
+                    NotionsNeeded = pattern.NotionsNeeded,
+                    WhereStored = pattern.WhereStored,
+                    HaveMade = pattern.HaveMade
+                };
             }
         }
     }
