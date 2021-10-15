@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Inspotivity.Model.PaperPatternModels.PaperPatternDetail>
+﻿@model List<Inspotivity.Model.PaperPatternModels.PaperPatternDetail>
 
 @{
     ViewBag.Title = "Details";
@@ -10,7 +10,7 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
-    <tr>
+    @*<tr>
         <th>
             @Html.DisplayNameFor(model => model.Designer)
         </th>
@@ -48,7 +48,7 @@
             @Html.DisplayNameFor(model => model.HaveMade)
         </th>
         <th></th>
-    </tr>
+    </tr>*@
 
 @foreach (var item in Model) {
     <tr>

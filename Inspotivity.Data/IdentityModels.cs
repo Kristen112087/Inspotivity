@@ -41,16 +41,6 @@ namespace Inspotivity.Data
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             modelBuilder.Configurations.Add(new IdentityUserLoginConfiguration()).Add(new IdentityUserRoleConfiguration());
         }
-
-        //public System.Data.Entity.DbSet<Inspotivity.Model.PaperPatternModels.PaperPatternEdit> PaperPatternEdits { get; set; }
-
-        //public System.Data.Entity.DbSet<Inspotivity.Model.PaperPatternModels.PaperPatternDetail> PaperPatternDetails { get; set; }
-
-        //public System.Data.Entity.DbSet<Inspotivity.Model.PaperPatternModels.PaperPatternEdit> PaperPatternEdits { get; set; }
-
-        //public System.Data.Entity.DbSet<Inspotivity.Model.PaperPatternModels.PaperPatternDetail> PaperPatternDetails { get; set; }
-
-        //public System.Data.Entity.DbSet<Inspotivity.Model.PaperPatternModels.PaperPatternItem> PaperPatternItems { get; set; }
     }
 
     public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>

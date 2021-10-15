@@ -53,7 +53,7 @@ namespace Inspotivity.Controllers
         {
             var service = CreatePaperPatternService();
             var model = service.GetPaperPatterns();
-            return View();
+            return View(model);
         }
 
 
@@ -99,6 +99,7 @@ namespace Inspotivity.Controllers
         }
         // POST: PaperPattern/Edit/5
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, PaperPatternEdit model)
         {
             if (!ModelState.IsValid) return View(model);

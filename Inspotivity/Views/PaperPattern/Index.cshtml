@@ -1,4 +1,4 @@
-﻿@model Inspotivity.Model.PaperPatternModels.PaperPatternDetail
+﻿@model List<Inspotivity.Model.PaperPatternModels.PaperPatternItem>
 
 @{
     ViewBag.Title = "Index";
@@ -18,4 +18,51 @@
         @TempData["SaveResult"]
     </div>
 }
+
+<table class="table">
+    @*<tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PaperPatternId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Designer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PatternName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HaveMade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WhereStored)
+        </th>
+        <th></th>
+    </tr>*@
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaperPatternId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Designer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PatternName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HaveMade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WhereStored)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.PaperPatternId })|
+                @Html.ActionLink("Details", "Details", new { id = item.PaperPatternId })|
+                @Html.ActionLink("Delete", "Delete", new { id = item.PaperPatternId })
+            </td>
+        </tr>
+    }
+</table>
 
