@@ -13,6 +13,8 @@ namespace Inspotivity.Model.MeasurementModels
     {
         [Required]
         public Guid OwnerId { get; set; }
+        [Key]
+        public int MeasurementsId { get; set; }
         [Required]
         public string Who { get; set; }
         

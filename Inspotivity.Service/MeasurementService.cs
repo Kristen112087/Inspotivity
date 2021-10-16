@@ -51,6 +51,7 @@ namespace Inspotivity.Service
                 var query = database.Measurements.Where(m => m.OwnerId == _UserId).Select(m => new MeasurementItem()
                 {
                     OwnerId = _UserId,
+                    MeasurementsId = m.MeasurementsId,
                     Who = m.Who
                 });
                 return query.ToList();
@@ -70,6 +71,7 @@ namespace Inspotivity.Service
                 return new MeasurementDetail()
                 {
                     OwnerId = _UserId,
+                    MeasurementsId = measurement.MeasurementsId,
                     Who = measurement.Who,
                     Height = measurement.Height,
                     HeadCircumference = measurement.HeadCircumference,

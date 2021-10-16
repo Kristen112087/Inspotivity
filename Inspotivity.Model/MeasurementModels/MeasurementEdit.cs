@@ -12,6 +12,7 @@ namespace Inspotivity.Model.MeasurementModels
     {
         [ForeignKey(nameof(Guid))]
         public virtual Guid OwnerId { get; set; }
+        [Key]
         public int MeasurementsId { get; set; }
         public string Who { get; set; }
         public double Height { get; set; }

@@ -1,0 +1,55 @@
+﻿@model Inspotivity.Model.MeasurementModels.MeasurementEdit
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<hr />
+<div>
+    <strong>@Html.DisplayNameFor(model => model.Who):</strong>  @Html.DisplayFor(model => model.Who)
+</div>
+<div>
+    <strong>@Html.DisplayNameFor(model => model.Height):</strong>  @Html.DisplayFor(model => model.Height)
+</div>
+<div>
+    <strong>@Html.DisplayNameFor(model => model.HeadCircumference):</strong>  @Html.DisplayFor(model => model.HeadCircumference)
+</div>
+<div>
+    <strong>@Html.DisplayNameFor(model => model.UpperBust):</strong>  @Html.DisplayFor(model => model.UpperBust)
+</div>
+<div>
+    <strong>@Html.DisplayNameFor(model => model.FullBust):</strong>  @Html.DisplayFor(model => model.FullBust)
+</div>
+<div>
+    <strong>@Html.DisplayNameFor(model => model.UnderBust):</strong>  @Html.DisplayFor(model => model.UnderBust)
+</div>
+<div>
+    <strong>@Html.DisplayNameFor(model => model.Waist):</strong>  @Html.DisplayFor(model => model.Waist)
+</div>
+<div>
+    <strong>@Html.DisplayNameFor(model => model.Hips):</strong>  @Html.DisplayFor(model => model.Hips)
+</div>
+<div>
+    <strong>@Html.DisplayNameFor(model => model.OneThigh):</strong>  @Html.DisplayFor(model => model.OneThigh)
+</div>
+<div>
+    <strong>@Html.DisplayNameFor(model => model.OneCalf):</strong>  @Html.DisplayFor(model => model.OneCalf)
+</div>
+<div>
+    <strong>@Html.DisplayNameFor(model => model.OneUpperArm):</strong>  @Html.DisplayFor(model => model.OneUpperArm)
+</div>
+<div>
+    <strong>@Html.DisplayNameFor(model => model.OneLowerArm):</strong>  @Html.DisplayFor(model => model.OneLowerArm)
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <hr />
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+}

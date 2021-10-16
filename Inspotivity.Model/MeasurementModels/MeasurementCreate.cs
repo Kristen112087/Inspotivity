@@ -12,7 +12,10 @@ namespace Inspotivity.Model.MeasurementModels
     {
         [ForeignKey(nameof(Guid))]
         public virtual Guid OwnerId { get; set; }
+        [Key]
+        public int MeasurementsId { get; set; }
         public string Who { get; set; }
+        [Display(Name = "Height in Inches")]
         public double Height { get; set; }
         public double HeadCircumference { get; set; }
 
@@ -28,7 +31,7 @@ namespace Inspotivity.Model.MeasurementModels
         [Display(Name = "Waist: Put hands on sides and bend. Wherever your top torso bends is your natural Waist")]
         public double Waist { get; set; }
 
-        [Display(Name = "Hips: Fullest part around bottm")]
+        [Display(Name = "Hips: Fullest part around bottom")]
         public double Hips { get; set; }
 
         [Display(Name = "Thigh: Around one Thigh")]
