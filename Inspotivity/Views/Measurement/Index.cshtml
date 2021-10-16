@@ -18,3 +18,23 @@
         @TempData["SaveResult"]
     </div>
 }
+
+<table class="table">
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Who)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MeasurementsId })|
+                @Html.ActionLink("Details", "Details", new { id = item.MeasurementsId })|
+                @Html.ActionLink("Delete", "Delete", new { id = item.MeasurementsId })
+            </td>
+        </tr>
+    }
+</table>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

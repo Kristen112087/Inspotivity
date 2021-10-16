@@ -1,0 +1,46 @@
+﻿@model Inspotivity.Model.MeasurementModels.MeasurementDetail
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <strong>@Html.DisplayNameFor(model => model.Who):</strong>  @Html.DisplayFor(model => model.Who)
+</div>
+<div>
+    <strong>@Html.DisplayNameFor(model => model.Height):</strong>  @Html.DisplayFor(model => model.Height)
+</div>
+<div>
+    <strong>@Html.DisplayNameFor(model => model.HeadCircumference):</strong>  @Html.DisplayFor(model => model.HeadCircumference)
+</div>
+<div>
+    <strong>@Html.DisplayNameFor(model => model.UpperBust):</strong>  @Html.DisplayFor(model => model.UpperBust)
+</div>
+<div>
+    <strong>@Html.DisplayNameFor(model => model.FullBust):</strong>  @Html.DisplayFor(model => model.FullBust)
+</div>
+<div>
+    <strong>@Html.DisplayNameFor(model => model.UnderBust):</strong>  @Html.DisplayFor(model => model.UnderBust)
+</div>
+<div>
+    <strong>@Html.DisplayNameFor(model => model.Waist):</strong>  @Html.DisplayFor(model => model.Waist)
+</div>
+<div>
+    <strong>@Html.DisplayNameFor(model => model.Hips):</strong>  @Html.DisplayFor(model => model.Hips)
+</div>
+<div>
+    <strong>@Html.DisplayNameFor(model => model.OneThigh):</strong>  @Html.DisplayFor(model => model.OneThigh)
+</div>
+<div>
+    <strong>@Html.DisplayNameFor(model => model.OneCalf):</strong>  @Html.DisplayFor(model => model.OneCalf)
+</div>
+<div>
+    <strong>@Html.DisplayNameFor(model => model.OneUpperArm):</strong>  @Html.DisplayFor(model => model.OneUpperArm)
+</div>
+<div>
+    <strong>@Html.DisplayNameFor(model => model.OneLowerArm):</strong>  @Html.DisplayFor(model => model.OneLowerArm)
+</div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

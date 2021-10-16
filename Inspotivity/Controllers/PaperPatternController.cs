@@ -157,12 +157,5 @@ namespace Inspotivity.Controllers
 
             return RedirectToAction("Index");
         }
-
-
-
-
-
-
-
     }
 }
