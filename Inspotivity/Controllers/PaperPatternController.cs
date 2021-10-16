@@ -67,8 +67,6 @@ namespace Inspotivity.Controllers
 
 
 
-
-
         // GET: PaperPattern/Details/1
         public ActionResult Details(int id)
         {

@@ -85,23 +85,42 @@ namespace Inspotivity.Controllers
         // GET: Fabric/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var service = CreateFabricService();
+            var detail = service.GetFabricById(id);
+            var model = new FabricEdit
+            {
+                FabricId = detail.FabricId,
+                FabricType = detail.FabricType,
+                FiberContent = detail.FiberContent,
+                WeightPerYard = detail.WeightPerYard,
+                DatePurchased = detail.DatePurchased,
+                PricePerYard = detail.PricePerYard,
+                StretchPercentage = detail.StretchPercentage,
+                YardsOnHand = detail.YardsOnHand
+            };
+            return View(model);
         }
 
         // POST: Fabric/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, FabricEdit model)
         {
-            try
-            {
-                // TODO: Add update logic here
+            if (!ModelState.IsValid) return View(model);
 
+            if (model.FabricId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+            var service = CreateFabricService();
+            if (service.UpdateFabric(model))
+            {
+                TempData["SaveResult"] = "Your fabric was updated";
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            ModelState.AddModelError("", "Your fabric could not be updated");
+            return View(model);
         }
 
 
@@ -111,25 +130,27 @@ namespace Inspotivity.Controllers
 
 
         // GET: Fabric/Delete/5
+        [ActionName("Delete")]
         public ActionResult Delete(int id)
         {
-            return View();
+            var service = CreateFabricService();
+            var model = service.DeletebyId(id);
+
+            return View(model);
         }
 
         // POST: Fabric/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteFabric(int id, FormCollection collection)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            var service = CreateFabricService();
+            service.DeleteFabric(id);
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            TempData["SaveResult"] = "Your fabric was deleted";
+
+            return RedirectToAction("Index");
         }
     }
 }

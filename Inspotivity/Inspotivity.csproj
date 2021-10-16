@@ -244,6 +244,8 @@
     <Content Include="Views\Fabric\Index.cshtml" />
     <Content Include="Views\Fabric\Create.cshtml" />
     <Content Include="Views\Fabric\Details.cshtml" />
+    <Content Include="Views\Fabric\Edit.cshtml" />
+    <Content Include="Views\Fabric\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
