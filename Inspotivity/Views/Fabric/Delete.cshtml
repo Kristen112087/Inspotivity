@@ -7,6 +7,7 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div class="list">
+    <hr />
     <div>
         <strong>@Html.DisplayNameFor(model => model.FabricType):</strong>  @Html.DisplayFor(model => model.FabricType)
     </div>
@@ -32,9 +33,9 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-
+    <hr />
     <div class="form-actions no-color">
         <input type="submit" value="Delete" class="btn btn-default" /> |
         @Html.ActionLink("Back to List", "Index")
     </div>
- }
+}
