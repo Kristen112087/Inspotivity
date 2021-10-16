@@ -4,9 +4,6 @@
 }
 
 <h2>Index</h2>
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 @if (TempData.ContainsKey("SaveResult"))
 {
     <div class="alert alert-success fae in" role="alert">
@@ -40,6 +37,9 @@
         </tr>
     }
 </table>
+<div>
+    @Html.ActionLink("Create New", "Create")
+</div>
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>

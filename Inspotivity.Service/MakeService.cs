@@ -43,8 +43,9 @@ namespace Inspotivity.Service
             using(var database = new ApplicationDbContext())
             {
                 var query = database.Makes.Where(m => m.OwnerId == _UserId).Select(m => new MakeItem()
-                {
+                {                    
                     OwnerId = _UserId,
+                    MakeId = m.MakeId,
                     PaperPattern = m.PaperPattern,
                     Fabric = m.Fabric,
                     Measurements = m.Measurements,

@@ -92,5 +92,15 @@ namespace Inspotivity.Controllers
             ModelState.AddModelError("", "You did not make anything");
             return View(model);
         }
+
+        //Get Make/Details/1
+        public ActionResult Details(int id)
+        {
+            var service = CreateMakeService();
+            var model = service.GetMakeById(id);
+
+            return View(model);
+        }
+
     }
 }
