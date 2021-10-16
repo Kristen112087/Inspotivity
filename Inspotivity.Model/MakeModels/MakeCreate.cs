@@ -13,18 +13,28 @@ namespace Inspotivity.Model.MakeModels
     {
         [ForeignKey(nameof(Guid))]
         public virtual Guid OwnerId { get; set; }
+        public int MakeId { get; set; }
 
-        [Display(Name = "Pattern Namw Used")]
-        [ForeignKey(nameof(PaperPattern))]
-        public virtual PaperPattern PaperPattern { get; set; }
+        //[Display(Name = "Pattern Name Used")]
+        //[ForeignKey(nameof(PaperPattern))]
+        //public virtual PaperPattern PaperPattern { get; set; }
+
+        //[Display(Name = "Fabric Used")]
+        //[ForeignKey(nameof(Fabric))]
+        //public virtual Fabric Fabric { get; set; }
+
+        //[Display(Name = "Made For")]
+        //[ForeignKey(nameof(Measurements))]
+        //public virtual Measurements Measurements { get; set; }
+
+        [Display(Name = "Pattern Name Used")]
+        public int PaperPatternId { get; set; }
 
         [Display(Name = "Fabric Used")]
-        [ForeignKey(nameof(Fabric))]
-        public virtual Fabric Fabric { get; set; }
+        public int FabricId { get; set; }
 
-        [Display(Name = "Made For")]
-        [ForeignKey(nameof(Measurements))]
-        public virtual Measurements Measurements { get; set; }
+        [Display(Name = "Measurements Used")]
+        public int MeasurementsId { get; set; }
 
         [Display(Name = "Size Made")]
         public string SizeMade { get; set; }

@@ -170,6 +170,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\FabricController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MakeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MeasurementController.cs" />
     <Compile Include="Controllers\PaperPatternController.cs" />
@@ -184,6 +185,8 @@
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
+    <None Include="Content\bootstrap.css.old" />
+    <None Include="Content\bootstrap.min.css.old" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -252,6 +255,9 @@
     <Content Include="Views\Measurement\Details.cshtml" />
     <Content Include="Views\Measurement\Edit.cshtml" />
     <Content Include="Views\Measurement\Delete.cshtml" />
+    <Content Include="Views\Make\Index.cshtml" />
+    <Content Include="Views\Make\Create.cshtml" />
+    <Content Include="Views\Make\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

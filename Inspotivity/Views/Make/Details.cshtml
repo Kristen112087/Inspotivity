@@ -1,0 +1,30 @@
+﻿@model Inspotivity.Model.MakeModels.MakeDetail
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<hr />
+<div>
+    <strong>@Html.DisplayNameFor(model => model.PaperPattern):</strong>  @Html.DisplayFor(model => model.PaperPattern)
+</div>
+<div>
+    <strong>@Html.DisplayNameFor(model => model.Fabric):</strong>  @Html.DisplayFor(model => model.Fabric)
+</div>
+<div>
+    <strong>@Html.DisplayNameFor(model => model.Measurements):</strong>  @Html.DisplayFor(model => model.Measurements)
+</div>
+<div>
+    <strong>@Html.DisplayNameFor(model => model.SizeMade):</strong>  @Html.DisplayFor(model => model.SizeMade)
+</div>
+<div>
+    <strong>@Html.DisplayNameFor(model => model.Notes):</strong>  @Html.DisplayFor(model => model.Notes)
+</div>
+<div>
+    <strong>@Html.DisplayNameFor(model => model.DateMade):</strong>  @Html.DisplayFor(model => model.DateMade)
+</div>
+<hr />
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
