@@ -243,6 +243,7 @@
     <Content Include="Views\PaperPattern\Details.cshtml" />
     <Content Include="Views\Fabric\Index.cshtml" />
     <Content Include="Views\Fabric\Create.cshtml" />
+    <Content Include="Views\Fabric\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

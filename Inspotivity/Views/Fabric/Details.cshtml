@@ -1,0 +1,31 @@
+﻿@model Inspotivity.Model.FabricModels.FabricDetail
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <strong>@Html.DisplayNameFor(model => model.FabricType):</strong>  @Html.DisplayFor(model => model.FabricType)
+</div>
+<div>
+    <strong>@Html.DisplayNameFor(model => model.FiberContent):</strong>  @Html.DisplayFor(model => model.FiberContent)
+</div>
+<div>
+    <strong>@Html.DisplayNameFor(model => model.WeightPerYard):</strong>  @Html.DisplayFor(model => model.WeightPerYard)
+</div>
+<div>
+    <strong>@Html.DisplayNameFor(model => model.DatePurchased):</strong>  @Html.DisplayFor(model => model.DatePurchased)
+</div>
+<div>
+    <strong>@Html.DisplayNameFor(model => model.PricePerYard):</strong>  @Html.DisplayFor(model => model.PricePerYard)
+</div>
+<div>
+    <strong>@Html.DisplayNameFor(model => model.StretchPercentage):</strong>  @Html.DisplayFor(model => model.StretchPercentage)
+</div>
+<div>
+    <strong>@Html.DisplayNameFor(model => model.YardsOnHand):</strong>  @Html.DisplayFor(model => model.YardsOnHand)
+</div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
