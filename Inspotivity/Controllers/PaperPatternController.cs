@@ -19,6 +19,25 @@ namespace Inspotivity.Controllers
             return service;
         }
 
+        private PaperPatternService CreatePaperPatternService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new PaperPatternService(userId);
+            return service;
+        }
+
+
+
+
+        // GET: PaperPattern
+        public ActionResult Index()
+        {
+            var service = CreatePaperPatternService();
+            var model = service.GetPaperPatterns();
+            return View(model);
+        }
+
+
 
 
 
@@ -48,18 +67,6 @@ namespace Inspotivity.Controllers
 
 
 
-        // GET: PaperPattern
-        public ActionResult Index()
-        {
-            var service = CreatePaperPatternService();
-            var model = service.GetPaperPatterns();
-            return View();
-        }
-
-
-
-
-
         // GET: PaperPattern/Details/1
         public ActionResult Details(int id)
         {
@@ -82,6 +89,7 @@ namespace Inspotivity.Controllers
             var detail = service.GetPaperPatternById(id);
             var model = new PaperPatternEdit
             {
+                PaperPatternId = detail.PaperPatternId,
                 Designer = detail.Designer,
                 PatternName = detail.PatternName,
                 ReleaseDate = detail.ReleaseDate,
@@ -99,6 +107,7 @@ namespace Inspotivity.Controllers
         }
         // POST: PaperPattern/Edit/5
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, PaperPatternEdit model)
         {
             if (!ModelState.IsValid) return View(model);
@@ -130,7 +139,7 @@ namespace Inspotivity.Controllers
         public ActionResult Delete(int id)
         {
             var service = CreatePaperPatternService();
-            var model = service.GetPaperPatternById(id);
+            var model = service.DeleteById(id);
 
             return View(model);
         }
@@ -155,11 +164,5 @@ namespace Inspotivity.Controllers
 
 
 
-        private PaperPatternService CreatePaperPatternService()
-        {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new PaperPatternService(userId);
-            return service;
-        }
     }
 }

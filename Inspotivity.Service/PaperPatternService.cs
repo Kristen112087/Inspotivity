@@ -20,8 +20,9 @@ namespace Inspotivity.Service
         //Create
         public bool CreatePaperPattern(PaperPatternCreate model)
         {
-            var pattern = new PaperPattern()
+            var newPattern = new PaperPattern()
             {
+                OwnerId = _UserId,
                 Designer = model.Designer,
                 PatternName = model.PatternName,
                 ReleaseDate = model.ReleaseDate,
@@ -35,27 +36,27 @@ namespace Inspotivity.Service
                 WhereStored = model.WhereStored,
                 HaveMade = model.HaveMade,
             };
-
             using (var database = new ApplicationDbContext())
             {
-                database.PaperPatterns.Add(pattern);
+                database.PaperPatterns.Add(newPattern);
                 return database.SaveChanges() == 1;
             }
         }
 
-        //Read
-        public IEnumerable<PaperPatternItems> GetPaperPatterns()
+        //Read All
+        public IEnumerable<PaperPatternItem> GetPaperPatterns()
         {
             using (var database = new ApplicationDbContext())
             {
-                var query = database.PaperPatterns.Where(p => p.OwnerId == _UserId).Select(p => new PaperPatternItems()
+                var query = database.PaperPatterns.Where(p => p.OwnerId == _UserId).Select(p => new PaperPatternItem()
                 {
+                    OwnerId = _UserId,
+                    PaperPatternId = p.PaperPatternId,
                     Designer = p.Designer,
                     PatternName = p.PatternName,
                     HaveMade = p.HaveMade
-
                 });
-                return query.ToArray();
+                return query.ToList();
             }
         }
 
@@ -66,11 +67,13 @@ namespace Inspotivity.Service
             {
                 var pattern = database.PaperPatterns.Single(p => p.PaperPatternId == id);
 
-                var service = new PaperPatternService(_UserId);
-                var paperPatterns = service.GetPaperPatternById(id);
+                //var service = new PaperPatternService(_UserId);
+                //var paperPatterns = service.GetPaperPatternById(id);
 
-                return new PaperPatternDetail()
+                return new PaperPatternDetail
                 {
+                    OwnerId = _UserId,
+                    PaperPatternId = pattern.PaperPatternId,
                     Designer = pattern.Designer,
                     PatternName = pattern.PatternName,
                     ReleaseDate = pattern.ReleaseDate,
@@ -95,6 +98,7 @@ namespace Inspotivity.Service
             {
                 var pattern = database.PaperPatterns.Single(p => p.PaperPatternId == model.PaperPatternId);
 
+                pattern.OwnerId = _UserId;
                 pattern.Designer = model.Designer;
                 pattern.PatternName = model.PatternName;
                 pattern.ReleaseDate = model.ReleaseDate;
@@ -107,12 +111,13 @@ namespace Inspotivity.Service
                 pattern.NotionsNeeded = model.NotionsNeeded;
                 pattern.WhereStored = model.WhereStored;
                 pattern.HaveMade = model.HaveMade;
-
-                return database.SaveChanges() == 1;
+                var savedObjectCount = database.SaveChanges();
+                return savedObjectCount == 1;
+               
             }
         }
 
-        // Delete By Id
+        // Delete
 
         public bool DeletePaperPattern(int patternId)
         {
@@ -120,8 +125,37 @@ namespace Inspotivity.Service
             {
                 var pattern = database.PaperPatterns.Single(p => p.PaperPatternId == patternId && p.OwnerId == _UserId);
                 database.PaperPatterns.Remove(pattern);
-
                 return database.SaveChanges() == 1;
+            }
+        }
+
+        //Delete By Id
+        public PaperPatternEdit DeleteById(int id)
+        {
+            using (var database = new ApplicationDbContext())
+            {
+                var pattern = database.PaperPatterns.Single(p => p.PaperPatternId == id);
+
+                //var service = new PaperPatternService(_UserId);
+                //var paperPatterns = service.GetPaperPatternById(id);
+
+                return new PaperPatternEdit
+                {
+                    OwnerId = _UserId,
+                    PaperPatternId = pattern.PaperPatternId,
+                    Designer = pattern.Designer,
+                    PatternName = pattern.PatternName,
+                    ReleaseDate = pattern.ReleaseDate,
+                    PurchaseDate = pattern.PurchaseDate,
+                    PatternURL = pattern.PatternURL,
+                    PatternNumber = pattern.PatternNumber,
+                    Category = pattern.Category,
+                    FabricTypeNeeded = pattern.FabricTypeNeeded,
+                    FabricRequirementInYards = pattern.FabricRequirementInYards,
+                    NotionsNeeded = pattern.NotionsNeeded,
+                    WhereStored = pattern.WhereStored,
+                    HaveMade = pattern.HaveMade
+                };
             }
         }
     }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,8 @@ namespace Inspotivity.Model.MeasurementModels
 {
     public class MeasurementEdit
     {
+        [ForeignKey(nameof(Guid))]
+        public virtual Guid OwnerId { get; set; }
         public int MeasurementsId { get; set; }
         public string Who { get; set; }
         public double Height { get; set; }

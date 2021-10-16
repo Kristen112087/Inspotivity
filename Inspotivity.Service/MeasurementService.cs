@@ -21,6 +21,7 @@ namespace Inspotivity.Service
         {
             var measurement = new Measurements()
             {
+                OwnerId = _UserId,
                 Who = model.Who,
                 Height = model.Height,
                 HeadCircumference = model.HeadCircumference,
@@ -42,16 +43,17 @@ namespace Inspotivity.Service
             }
         }
 
-        //Read
+        //Read All
         public IEnumerable<MeasurementItem> GetAllMeasurements()
         {
             using (var database = new ApplicationDbContext())
             {
                 var query = database.Measurements.Where(m => m.OwnerId == _UserId).Select(m => new MeasurementItem()
                 {
+                    OwnerId = _UserId,
                     Who = m.Who
                 });
-                return query.ToArray();
+                return query.ToList();
             }
         }
 
@@ -62,11 +64,12 @@ namespace Inspotivity.Service
             {
                 var measurement = database.Measurements.Single(m => m.MeasurementsId == id);
 
-                var service = new MeasurementService(_UserId);
-                var singleMeasurement = service.GetMeasurementById(id);
+                //var service = new MeasurementService(_UserId);
+                //var singleMeasurement = service.GetMeasurementById(id);
 
                 return new MeasurementDetail()
                 {
+                    OwnerId = _UserId,
                     Who = measurement.Who,
                     Height = measurement.Height,
                     HeadCircumference = measurement.HeadCircumference,
@@ -90,6 +93,8 @@ namespace Inspotivity.Service
             {
                 var measurement = database.Measurements.Single(m => m.MeasurementsId == model.MeasurementsId);
 
+                measurement.OwnerId = _UserId;
+                measurement.MeasurementsId = model.MeasurementsId;
                 measurement.Who = model.Who;
                 measurement.Height = model.Height;
                 measurement.HeadCircumference = measurement.HeadCircumference;
@@ -102,20 +107,45 @@ namespace Inspotivity.Service
                 measurement.OneCalf = model.OneCalf;
                 measurement.OneUpperArm = model.OneUpperArm;
                 measurement.OneLowerArm = model.OneLowerArm;
-
-                return database.SaveChanges() == 1;
+                var savedObjectCount = database.SaveChanges();
+                return savedObjectCount == 1;
             }
         }
 
-        //Delete by Id
+        //Delete
         public bool DeleteMeasurement(int measurementsId)
         {
             using(var database = new ApplicationDbContext())
             {
                 var measurement = database.Measurements.Single(m => m.MeasurementsId == measurementsId && m.OwnerId == _UserId);
                 database.Measurements.Remove(measurement);
-
                 return database.SaveChanges() == 1;
+            }
+        }
+
+        //Delete By Id
+        public MeasurementEdit DeleteById(int id)
+        {
+            using(var database = new ApplicationDbContext())
+            {
+                var measurement = database.Measurements.Single(m => m.MeasurementsId == id);
+                return new MeasurementEdit
+                {
+                    OwnerId = _UserId,
+                    MeasurementsId = measurement.MeasurementsId,
+                    Who = measurement.Who,
+                    Height = measurement.Height,
+                    HeadCircumference = measurement.HeadCircumference,
+                    UpperBust = measurement.UpperBust,
+                    FullBust = measurement.FullBust,
+                    UnderBust = measurement.UnderBust,
+                    Waist = measurement.Waist,
+                    Hips = measurement.Hips,
+                    OneThigh = measurement.OneThigh,
+                    OneCalf = measurement.OneCalf,
+                    OneUpperArm = measurement.OneUpperArm,
+                    OneLowerArm = measurement.OneLowerArm
+                };
             }
         }
     }

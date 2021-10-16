@@ -168,6 +168,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\FabricController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PaperPatternController.cs" />
@@ -240,6 +241,11 @@
     <Content Include="Views\PaperPattern\Index.cshtml" />
     <Content Include="Views\PaperPattern\Delete.cshtml" />
     <Content Include="Views\PaperPattern\Details.cshtml" />
+    <Content Include="Views\Fabric\Index.cshtml" />
+    <Content Include="Views\Fabric\Create.cshtml" />
+    <Content Include="Views\Fabric\Details.cshtml" />
+    <Content Include="Views\Fabric\Edit.cshtml" />
+    <Content Include="Views\Fabric\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

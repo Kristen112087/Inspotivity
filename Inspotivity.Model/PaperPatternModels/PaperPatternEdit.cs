@@ -26,6 +26,8 @@ namespace Inspotivity.Model.PaperPatternModels
             Advanced,
             Expert
         }
+        [ForeignKey(nameof(Guid))]
+        public virtual Guid OwnerId { get; set; }
         [Key]
         public int PaperPatternId { get; set; }
         public string Designer { get; set; }

@@ -1,4 +1,4 @@
-﻿@model Inspotivity.Model.PaperPatternModels.PaperPatternDetail
+﻿@model List<Inspotivity.Model.PaperPatternModels.PaperPatternItem>
 
 @{
     ViewBag.Title = "Index";
@@ -18,4 +18,36 @@
         @TempData["SaveResult"]
     </div>
 }
+
+<table class="table">
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaperPatternId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Designer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PatternName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HaveMade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WhereStored)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.PaperPatternId })|
+                @Html.ActionLink("Details", "Details", new { id = item.PaperPatternId })|
+                @Html.ActionLink("Delete", "Delete", new { id = item.PaperPatternId })
+            </td>
+        </tr>
+    }
+</table>
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
 
