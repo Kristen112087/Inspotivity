@@ -15,12 +15,12 @@
         @TempData["SaveResult"]
     </div>
 }
-
 <table class="table">
 
     @foreach (var item in Model)
     {
         <tr>
+
             <td>
                 @Html.DisplayFor(modelItem => item.PaperPatternId)
             </td>

@@ -15,6 +15,9 @@ namespace Inspotivity.Model.MakeModels
         public virtual Guid OwnerId { get; set; }
         public int MakeId { get; set; }
 
+        [Display(Name = "Pattern Name Used")]
+        public int PaperPatternId { get; set; }
+
         [Display(Name = "Pattern Used")]
         [ForeignKey(nameof(PaperPattern))]
         public virtual PaperPattern PaperPattern { get; set; }
