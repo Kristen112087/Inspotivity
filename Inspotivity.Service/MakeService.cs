@@ -22,9 +22,9 @@ namespace Inspotivity.Service
             var make = new Make()
             {
                 OwnerId = _UserId,
-                PaperPattern = model.PaperPattern,
-                Fabric = model.Fabric,
-                Measurements = model.Measurements,
+                PaperPatternId = model.PaperPatternId,
+                FabricId = model.FabricId,
+                MeasurementsId = model.MeasurementsId,
                 SizeMade = model.SizeMade,
                 Notes = model.Notes,
                 DateMade = model.DateMade
@@ -51,7 +51,7 @@ namespace Inspotivity.Service
                     Notes = m.Notes,
                     DateMade = m.DateMade
                 });
-                return query.ToArray();
+                return query.ToList();
             }
         }
 

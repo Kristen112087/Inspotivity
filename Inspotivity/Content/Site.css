@@ -22,3 +22,56 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.smOverallPadding {
+    padding: 2px 2px 2px 2px;
+}
+.mdOverallPadding {
+    padding: 5px 5px 5px 5px;
+}
+.lgOverallPadding {
+    padding: 10px 10px 10px 10px;
+}
+
+.smTopBottomPadding {
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.mdTopBottomPadding {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.lgTopBottomPadding {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+.smOverallMargin {
+    margin: 2px 2px 2px 2px;
+}
+
+.mdOverallMargin {
+    margin: 5px 5px 5px 5px;
+}
+
+.lgOverallMargin {
+    margin: 10px 10px 10px 10px;
+}
+
+.smTopBottomMargin {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.mdTopBottomMargin {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.lgTopBottomMargin {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

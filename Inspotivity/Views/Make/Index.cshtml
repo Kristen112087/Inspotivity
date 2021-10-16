@@ -1,0 +1,53 @@
+﻿@model List<Inspotivity.Model.MakeModels.MakeItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@if (TempData.ContainsKey("SaveResult"))
+{
+    <div class="alert alert-success fae in" role="alert">
+
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        @TempData["SaveResult"]
+    </div>
+}
+
+<table class="table">
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MakeId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaperPattern)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fabric)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Measurements)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Notes)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.MakeId })|
+            @Html.ActionLink("Details", "Details", new { id = item.MakeId })|
+            @Html.ActionLink("Delete", "Delete", new { id = item.MakeId })
+        </td>
+    </tr>
+    }
+</table>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+

@@ -170,6 +170,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\FabricController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MakeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MeasurementController.cs" />
     <Compile Include="Controllers\PaperPatternController.cs" />
@@ -254,6 +255,8 @@
     <Content Include="Views\Measurement\Details.cshtml" />
     <Content Include="Views\Measurement\Edit.cshtml" />
     <Content Include="Views\Measurement\Delete.cshtml" />
+    <Content Include="Views\Make\Index.cshtml" />
+    <Content Include="Views\Make\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
