@@ -19,6 +19,25 @@ namespace Inspotivity.Controllers
             return service;
         }
 
+        private PaperPatternService CreatePaperPatternService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new PaperPatternService(userId);
+            return service;
+        }
+
+
+
+
+        // GET: PaperPattern
+        public ActionResult Index()
+        {
+            var service = CreatePaperPatternService();
+            var model = service.GetPaperPatterns();
+            return View(model);
+        }
+
+
 
 
 
@@ -45,16 +64,6 @@ namespace Inspotivity.Controllers
             return View(model);
         }
 
-
-
-
-        // GET: PaperPattern
-        public ActionResult Index()
-        {
-            var service = CreatePaperPatternService();
-            var model = service.GetPaperPatterns();
-            return View(model);
-        }
 
 
 
@@ -157,11 +166,5 @@ namespace Inspotivity.Controllers
 
 
 
-        private PaperPatternService CreatePaperPatternService()
-        {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new PaperPatternService(userId);
-            return service;
-        }
     }
 }

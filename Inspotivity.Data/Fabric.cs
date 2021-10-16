@@ -21,7 +21,7 @@ namespace Inspotivity.Data
         public double WeightPerYard { get; set; }
         public DateTimeOffset DatePurchased { get; set; }
         public double PricePerYard { get; set; }
-        public int StretchPercentage { get; set; }
+        public double StretchPercentage { get; set; }
         public double YardsOnHand { get; set; }
     }
 }

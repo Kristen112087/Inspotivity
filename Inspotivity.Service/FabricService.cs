@@ -22,6 +22,7 @@ namespace Inspotivity.Service
             var fabric = new Fabric()
             {
                 OwnerId = _UserId,
+                FabricId = model.FabricId,
                 FabricType = model.FabricType,
                 FiberContent = model.FiberContent,
                 WeightPerYard = model.WeightPerYard,
