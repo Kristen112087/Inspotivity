@@ -3,27 +3,153 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Make Details</h2>
 
 <hr />
-<div>
-    <strong>@Html.DisplayNameFor(model => model.PaperPattern):</strong>  @Html.DisplayFor(model => model.PaperPattern)
+<div class="row">
+    <div class="col-xs-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">General Details</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <strong>Size Made: </strong> @Html.DisplayFor(model => model.SizeMade)
+                    </div>
+                    <div class="col-lg-12">
+                        <strong>When Made: </strong> @Html.DisplayFor(model => model.DateMade)
+                    </div>
+                    <div class="col-lg-12">
+                        <strong>Notes: </strong> <br />@Html.DisplayFor(model => model.Notes)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
-<div>
-    <strong>@Html.DisplayNameFor(model => model.Fabric):</strong>  @Html.DisplayFor(model => model.Fabric)
+
+<div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class="panel panel-primary" style="min-height:320px">
+            <div class="panel-heading">
+                <h3 class="panel-title">Pattern Details</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <strong>Designer: </strong> @Html.DisplayFor(model => model.PaperPattern.Designer)
+                    </div>
+                    <div class="col-lg-12">
+                        <strong>Pattern Name: </strong> @Html.DisplayFor(model => model.PaperPattern.PatternName)
+                    </div>
+                    <div class="col-lg-12">
+                        <strong>Pattern Release Date: </strong> @Html.DisplayFor(model => model.PaperPattern.ReleaseDate)
+                    </div>
+                    <div class="col-lg-12">
+                        <strong>Pattern Number: </strong> @Html.DisplayFor(model => model.PaperPattern.PatternNumber)
+                    </div>
+                    <div class="col-lg-12">
+                        <strong>Category: </strong> @Html.DisplayFor(model => model.PaperPattern.Category)
+                    </div>
+                    <div class="col-lg-12">
+                        <strong>Fabric Type Needed: </strong> @Html.DisplayFor(model => model.PaperPattern.FabricTypeNeeded)
+                    </div>
+                    <div class="col-lg-12">
+                        <strong>Fabric Requirements (Yards): </strong> @Html.DisplayFor(model => model.PaperPattern.FabricRequirementInYards)
+                    </div>
+                    <div class="col-lg-12">
+                        <strong>Any Notions Needed: </strong> @Html.DisplayFor(model => model.PaperPattern.NotionsNeeded)
+                    </div>
+                    <div class="col-lg-12">
+                        <strong>Where Pattern is Stored: </strong> @Html.DisplayFor(model => model.PaperPattern.WhereStored)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class="panel panel-primary" style="min-height:320px">
+            <div class="panel-heading">
+                <h3 class="panel-title">Fabric Details</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <strong>Fabric Type: </strong> @Html.DisplayFor(model => model.Fabric.FabricType)
+                    </div>
+                    <div class="col-lg-12">
+                        <strong>Fiber Content: </strong> @Html.DisplayFor(model => model.Fabric.FiberContent)
+                    </div>
+                    <div class="col-lg-12">
+                        <strong>Weight Per Yard: </strong> @Html.DisplayFor(model => model.Fabric.WeightPerYard)
+                    </div>
+                    <div class="col-lg-12">
+                        <strong>Date Purchased: </strong> @Html.DisplayFor(model => model.Fabric.DatePurchased)
+                    </div>
+                    <div class="col-lg-12">
+                        <strong>Price Per Yard: </strong> @Html.DisplayFor(model => model.Fabric.PricePerYard)
+                    </div>
+                    <div class="col-lg-12">
+                        <strong>Stretch Percentage: </strong> @Html.DisplayFor(model => model.Fabric.StretchPercentage)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class="panel panel-primary" style="min-height:320px">
+            <div class="panel-heading">
+                <h3 class="panel-title">Measurement Details</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <strong>Made for: </strong> @Html.DisplayFor(model => model.Measurements.Who)
+                    </div>
+                    <div class="col-lg-12">
+                        <strong>Height: </strong> @Html.DisplayFor(model => model.Measurements.Height)
+                    </div>
+                    <div class="col-lg-12">
+                        <strong>Head Circumference: </strong> @Html.DisplayFor(model => model.Measurements.HeadCircumference)
+                    </div>
+                    <div class="col-lg-12">
+                        <strong>Upper Bust: </strong> @Html.DisplayFor(model => model.Measurements.UpperBust)
+                    </div>
+                    <div class="col-lg-12">
+                        <strong>Full Bust: </strong> @Html.DisplayFor(model => model.Measurements.FullBust)
+                    </div>
+                    <div class="col-lg-12">
+                        <strong>Under Bust: </strong> @Html.DisplayFor(model => model.Measurements.UnderBust)
+                    </div>
+                    <div class="col-lg-12">
+                        <strong>Waist: </strong> @Html.DisplayFor(model => model.Measurements.Waist)
+                    </div>
+                    <div class="col-lg-12">
+                        <strong>Hips: </strong> @Html.DisplayFor(model => model.Measurements.Hips)
+                    </div>
+                    <div class="col-lg-12">
+                        <strong>One Thigh: </strong> @Html.DisplayFor(model => model.Measurements.OneThigh)
+                    </div>
+                    <div class="col-lg-12">
+                        <strong>One Calf: </strong> @Html.DisplayFor(model => model.Measurements.OneCalf)
+                    </div>
+                    <div class="col-lg-12">
+                        <strong>One Upper Arm: </strong> @Html.DisplayFor(model => model.Measurements.OneUpperArm)
+                    </div>
+                    <div class="col-lg-12">
+                        <strong>One Lower Arm: </strong> @Html.DisplayFor(model => model.Measurements.OneLowerArm)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
-<div>
-    <strong>@Html.DisplayNameFor(model => model.Measurements):</strong>  @Html.DisplayFor(model => model.Measurements)
-</div>
-<div>
-    <strong>@Html.DisplayNameFor(model => model.SizeMade):</strong>  @Html.DisplayFor(model => model.SizeMade)
-</div>
-<div>
-    <strong>@Html.DisplayNameFor(model => model.Notes):</strong>  @Html.DisplayFor(model => model.Notes)
-</div>
-<div>
-    <strong>@Html.DisplayNameFor(model => model.DateMade):</strong>  @Html.DisplayFor(model => model.DateMade)
-</div>
+
 <hr />
 <div>
     @Html.ActionLink("Back to List", "Index")
