@@ -1,0 +1,91 @@
+﻿@model Inspotivity.Model.MakeModels.MakeEdit
+@using Inspotivity.Model.PaperPatternModels
+@using Inspotivity.Model.MeasurementModels
+@using Inspotivity.Model.FabricModels
+
+@{
+    ViewBag.Title = "Edit";
+
+    IEnumerable<PaperPatternItem> paperPatterns = ViewData["PaperPatterns"] as IEnumerable<PaperPatternItem>;
+    List<SelectListItem> paperPatternsSelectList = new List<SelectListItem>();
+    foreach (var p in paperPatterns)
+    {
+        paperPatternsSelectList.Add(new SelectListItem { Text = p.PatternName, Value = p.PaperPatternId.ToString() });
+    }
+
+    IEnumerable<FabricItem> fabricItems = ViewData["Fabrics"] as IEnumerable<FabricItem>;
+    List<SelectListItem> fabricSelectList = new List<SelectListItem>();
+    foreach (var f in fabricItems)
+    {
+        fabricSelectList.Add(new SelectListItem { Text = f.FabricType, Value = f.FabricId.ToString() });
+    }
+
+    IEnumerable<MeasurementItem> measurementItems = ViewData["Measurements"] as IEnumerable<MeasurementItem>;
+    List<SelectListItem> measurementSelectList = new List<SelectListItem>();
+    foreach (var m in measurementItems)
+    {
+        measurementSelectList.Add(new SelectListItem { Text = m.Who, Value = m.MeasurementsId.ToString() });
+    }
+
+}
+
+<h2>Update Make</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-12">
+                    @Html.Label("Paper Pattern Used")
+                    @Html.DropDownList("ddlPaperPattern", paperPatternsSelectList, "", new { @class = "form-control mdTopBottomMargin" })
+                    
+
+                </div>
+                <div class="col-md-12">
+                    @Html.Label("Fabric Used")
+                    @Html.DropDownList("ddlFabrics", fabricSelectList, "", new { @class = "form-control mdTopBottomMargin" })
+                </div>
+                <div class="col-md-12">
+                    @Html.Label("Measurements Used")
+                    @Html.DropDownList("ddlMeasurements", measurementSelectList, "", new { @class = "form-control mdTopBottomMargin" })
+                </div>
+
+                <div class="col-md-12">
+                    @Html.LabelFor(model => model.SizeMade)
+                    @Html.EditorFor(model => model.SizeMade, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.SizeMade, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-12">
+                    @Html.LabelFor(model => model.Notes)
+                    @Html.EditorFor(model => model.Notes, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Notes, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="col-md-12">
+                    @Html.LabelFor(model => model.DateMade)
+                    @Html.EditorFor(model => model.DateMade, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DateMade, "", new { @class = "text-danger" })
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+<hr />
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+

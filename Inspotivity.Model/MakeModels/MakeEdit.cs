@@ -17,6 +17,12 @@ namespace Inspotivity.Model.MakeModels
 
         [Display(Name = "Pattern Used")]
         [ForeignKey(nameof(PaperPattern))]
+
+
+        //[Display(Name = "Pattern Name Used")]
+        //public string PaperPatternId { get; set; }
+
+
         public virtual PaperPattern PaperPattern { get; set; }
 
         [Display(Name = "Fabric Used")]
@@ -26,6 +32,9 @@ namespace Inspotivity.Model.MakeModels
         [Display(Name = "Made For")]
         [ForeignKey(nameof(Measurements))]
         public virtual Measurements Measurements { get; set; }
+
+
+
 
         [Display(Name = "Size Made")]
         public string SizeMade { get; set; }

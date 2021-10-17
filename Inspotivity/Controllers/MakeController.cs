@@ -101,5 +101,43 @@ namespace Inspotivity.Controllers
             return View(model);
         }
 
+
+
+        //Get Make/Edit/1
+        public ActionResult Edit(int id)
+        {
+            
+
+            var paperService = CreatePaperPatternService();
+            ViewData["PaperPatterns"] = paperService.GetPaperPatterns();
+
+            var fabricService = CreateFabricService();
+            ViewData["Fabrics"] = fabricService.GetAllFabric();
+
+            var measurementsService = CreateMeasurementsService();
+            ViewData["Measurements"] = measurementsService.GetAllMeasurements();
+
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, MakeEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            //model.PaperPatternId = Convert.ToInt32(Request.Form["ddlPaperPattern"]);
+            //model.FabricId = Convert.ToInt32(Request.Form["ddlFabrics"]);
+            //model.MeasurementsId = Convert.ToInt32(Request.Form["ddlMeasurements"]);
+
+            var service = CreateMakeService();
+
+            if (service.UpdateMake(model))
+            {
+                TempData["SaveResult"] = "Your make was updated!";
+                return RedirectToAction("Index");
+            }
+            ModelState.AddModelError("", "You did not update your make");
+            return View(model);
+        }
     }
 }
