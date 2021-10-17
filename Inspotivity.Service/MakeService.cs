@@ -63,9 +63,6 @@ namespace Inspotivity.Service
             {
                 var make = database.Makes.Single(m => m.MakeId == id);
 
-                //var service = new MakeService(_UserId);
-                //var singleMake = service.GetMakeById(id);
-
                 return new MakeDetail()
                 {
                     OwnerId = _UserId,

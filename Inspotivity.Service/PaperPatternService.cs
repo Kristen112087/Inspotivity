@@ -67,9 +67,6 @@ namespace Inspotivity.Service
             {
                 var pattern = database.PaperPatterns.Single(p => p.PaperPatternId == id);
 
-                //var service = new PaperPatternService(_UserId);
-                //var paperPatterns = service.GetPaperPatternById(id);
-
                 return new PaperPatternDetail
                 {
                     OwnerId = _UserId,
