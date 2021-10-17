@@ -76,6 +76,25 @@ namespace Inspotivity.Service
             }
         }
 
+        public MakeEdit GetMakeEditById(int id)
+        {
+            using (var database = new ApplicationDbContext())
+            {
+                var make = database.Makes.Single(m => m.MakeId == id);
+
+                return new MakeEdit()
+                {
+                    OwnerId = _UserId,
+                    PaperPatternId = make.PaperPatternId,
+                    FabricId = make.FabricId,
+                    MeasurementsId = make.MeasurementsId,
+                    SizeMade = make.SizeMade,
+                    Notes = make.Notes,
+                    DateMade = make.DateMade
+                };
+            }
+        }
+
         //Update by Id
         public bool UpdateMake(MakeEdit model)
         {
@@ -84,9 +103,9 @@ namespace Inspotivity.Service
                 var make = database.Makes.Single(m => m.MakeId == model.MakeId);
 
                 make.OwnerId = _UserId;
-                make.PaperPattern = model.PaperPattern;
-                make.Fabric = model.Fabric;
-                make.Measurements = model.Measurements;
+                make.PaperPatternId = model.PaperPatternId;
+                make.FabricId = model.FabricId;
+                make.MeasurementsId = model.MeasurementsId;
                 make.SizeMade = model.SizeMade;
                 make.Notes = model.Notes;
                 make.DateMade = model.DateMade;
@@ -107,22 +126,22 @@ namespace Inspotivity.Service
         }
 
         //Delete By Id
-        public MakeEdit DeleteById(int id)
-        {
-            using(var database = new ApplicationDbContext())
-            {
-                var make = database.Makes.Single(m => m.MakeId == id);
-                return new MakeEdit
-                {
-                    OwnerId = _UserId,
-                    PaperPattern = make.PaperPattern,
-                    Fabric = make.Fabric,
-                    Measurements = make.Measurements,
-                    SizeMade = make.SizeMade,
-                    Notes = make.Notes,
-                    DateMade = make.DateMade
-                };
-            }
-        }
+        //public MakeEdit DeleteById(int id)
+        //{
+        //    using(var database = new ApplicationDbContext())
+        //    {
+        //        var make = database.Makes.Single(m => m.MakeId == id);
+        //        return new MakeEdit
+        //        {
+        //            OwnerId = _UserId,
+        //            PaperPattern = make.PaperPattern,
+        //            Fabric = make.Fabric,
+        //            Measurements = make.Measurements,
+        //            SizeMade = make.SizeMade,
+        //            Notes = make.Notes,
+        //            DateMade = make.DateMade
+        //        };
+        //    }
+        //}
     }
 }

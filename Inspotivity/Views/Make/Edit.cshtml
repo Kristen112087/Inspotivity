@@ -10,21 +10,21 @@
     List<SelectListItem> paperPatternsSelectList = new List<SelectListItem>();
     foreach (var p in paperPatterns)
     {
-        paperPatternsSelectList.Add(new SelectListItem { Text = p.PatternName, Value = p.PaperPatternId.ToString() });
+        paperPatternsSelectList.Add(new SelectListItem { Text = p.PatternName, Value = p.PaperPatternId.ToString(), Selected = p.PaperPatternId == Model.PaperPatternId });
     }
 
     IEnumerable<FabricItem> fabricItems = ViewData["Fabrics"] as IEnumerable<FabricItem>;
     List<SelectListItem> fabricSelectList = new List<SelectListItem>();
     foreach (var f in fabricItems)
     {
-        fabricSelectList.Add(new SelectListItem { Text = f.FabricType, Value = f.FabricId.ToString() });
+        fabricSelectList.Add(new SelectListItem { Text = f.FabricType, Value = f.FabricId.ToString(), Selected = f.FabricId == Model.FabricId });
     }
 
     IEnumerable<MeasurementItem> measurementItems = ViewData["Measurements"] as IEnumerable<MeasurementItem>;
     List<SelectListItem> measurementSelectList = new List<SelectListItem>();
     foreach (var m in measurementItems)
     {
-        measurementSelectList.Add(new SelectListItem { Text = m.Who, Value = m.MeasurementsId.ToString() });
+        measurementSelectList.Add(new SelectListItem { Text = m.Who, Value = m.MeasurementsId.ToString(), Selected = m.MeasurementsId == Model.MeasurementsId });
     }
 
 }

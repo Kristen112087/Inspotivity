@@ -106,8 +106,6 @@ namespace Inspotivity.Controllers
         //Get Make/Edit/1
         public ActionResult Edit(int id)
         {
-            
-
             var paperService = CreatePaperPatternService();
             ViewData["PaperPatterns"] = paperService.GetPaperPatterns();
 
@@ -117,17 +115,21 @@ namespace Inspotivity.Controllers
             var measurementsService = CreateMeasurementsService();
             ViewData["Measurements"] = measurementsService.GetAllMeasurements();
 
-            return View();
+            var service = CreateMakeService();
+            var model = service.GetMakeEditById(id);
+
+            return View(model);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, MakeEdit model)
         {
             if (!ModelState.IsValid) return View(model);
-
-            //model.PaperPatternId = Convert.ToInt32(Request.Form["ddlPaperPattern"]);
-            //model.FabricId = Convert.ToInt32(Request.Form["ddlFabrics"]);
-            //model.MeasurementsId = Convert.ToInt32(Request.Form["ddlMeasurements"]);
+            model.MakeId = id;
+            model.OwnerId = Guid.Parse(User.Identity.GetUserId());
+            model.PaperPatternId = Convert.ToInt32(Request.Form["ddlPaperPattern"]);
+            model.FabricId = Convert.ToInt32(Request.Form["ddlFabrics"]);
+            model.MeasurementsId = Convert.ToInt32(Request.Form["ddlMeasurements"]);
 
             var service = CreateMakeService();
 
