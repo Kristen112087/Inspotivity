@@ -98,7 +98,6 @@ namespace Inspotivity.Controllers
         {
             var service = CreateMakeService();
             var model = service.GetMakeById(id);
-
             return View(model);
         }
 
