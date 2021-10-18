@@ -6,36 +6,49 @@
 <h2>Delete Fabric</h2>
 
 <h3>Are you sure you want to delete this?</h3>
-<div class="list">
-    <hr />
-    <div>
-        <strong>@Html.DisplayNameFor(model => model.FabricType):</strong>  @Html.DisplayFor(model => model.FabricType)
-    </div>
-    <div>
-        <strong>@Html.DisplayNameFor(model => model.FiberContent):</strong>  @Html.DisplayFor(model => model.FiberContent)
-    </div>
-    <div>
-        <strong>@Html.DisplayNameFor(model => model.WeightPerYard):</strong>  @Html.DisplayFor(model => model.WeightPerYard)
-    </div>
-    <div>
-        <strong>@Html.DisplayNameFor(model => model.DatePurchased):</strong>  @Html.DisplayFor(model => model.DatePurchased)
-    </div>
-    <div>
-        <strong>@Html.DisplayNameFor(model => model.PricePerYard):</strong>  @Html.DisplayFor(model => model.PricePerYard)
-    </div>
-    <div>
-        <strong>@Html.DisplayNameFor(model => model.StretchPercentage):</strong>  @Html.DisplayFor(model => model.StretchPercentage)
-    </div>
-    <div>
-        <strong>@Html.DisplayNameFor(model => model.YardsOnHand):</strong>  @Html.DisplayFor(model => model.YardsOnHand)
-    </div>
-</div>
+
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     <hr />
-    <div class="form-actions no-color">
-        <input type="submit" value="Delete" class="btn btn-default" /> |
-        @Html.ActionLink("Back to List", "Index")
-    </div>
+    
 }
+<div class="row">
+    <div class="col-xs-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">General Fabric Details</h3>
+            </div>
+            <div class="panel-body">
+                <div>
+                    <strong>@Html.DisplayNameFor(model => model.FabricType):</strong>  @Html.DisplayFor(model => model.FabricType)
+                </div>
+                <div>
+                    <strong>@Html.DisplayNameFor(model => model.FiberContent):</strong>  @Html.DisplayFor(model => model.FiberContent)
+                </div>
+                <div>
+                    <strong>@Html.DisplayNameFor(model => model.WeightPerYard):</strong>  @Html.DisplayFor(model => model.WeightPerYard)
+                </div>
+                <div>
+                    <strong>@Html.DisplayNameFor(model => model.DatePurchased):</strong>  @Html.DisplayFor(model => model.DatePurchased)
+                </div>
+                <div>
+                    <strong>@Html.DisplayNameFor(model => model.PricePerYard):</strong>  @Html.DisplayFor(model => model.PricePerYard)
+                </div>
+                <div>
+                    <strong>@Html.DisplayNameFor(model => model.StretchPercentage):</strong>  @Html.DisplayFor(model => model.StretchPercentage)
+                </div>
+                <div>
+                    <strong>@Html.DisplayNameFor(model => model.YardsOnHand):</strong>  @Html.DisplayFor(model => model.YardsOnHand)
+                </div>
+                <br />
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
