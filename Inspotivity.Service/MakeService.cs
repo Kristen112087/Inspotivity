@@ -126,22 +126,21 @@ namespace Inspotivity.Service
         }
 
         //Delete By Id
-        //public MakeEdit DeleteById(int id)
-        //{
-        //    using(var database = new ApplicationDbContext())
-        //    {
-        //        var make = database.Makes.Single(m => m.MakeId == id);
-        //        return new MakeEdit
-        //        {
-        //            OwnerId = _UserId,
-        //            PaperPattern = make.PaperPattern,
-        //            Fabric = make.Fabric,
-        //            Measurements = make.Measurements,
-        //            SizeMade = make.SizeMade,
-        //            Notes = make.Notes,
-        //            DateMade = make.DateMade
-        //        };
-        //    }
-        //}
+        public MakeItem DeleteById(int id)
+        {
+            using (var database = new ApplicationDbContext())
+            {
+                var make = database.Makes.Single(m => m.MakeId == id);
+                return new MakeItem
+                {
+                    OwnerId = _UserId,
+                    MakeId = make.MakeId,
+                    PaperPatternId = make.PaperPatternId,
+                    PaperPattern = make.PaperPattern,
+                    Fabric = make.Fabric,
+                    Measurements = make.Measurements,
+                };
+            }
+        }
     }
 }
