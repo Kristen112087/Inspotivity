@@ -133,13 +133,38 @@ namespace Inspotivity.Controllers
 
             var service = CreateMakeService();
 
-            if (service.UpdateMake(model))
+            
+          
+           if (service.UpdateMake(model))
             {
                 TempData["SaveResult"] = "Your make was updated!";
                 return RedirectToAction("Index");
             }
             ModelState.AddModelError("", "You did not update your make");
             return View(model);
+        }
+
+        //Get Make/Delete/1
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var service = CreateMakeService();
+            var model = service.DeleteById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteMake(int id, FormCollection collection)
+        {
+            var service = CreateMakeService();
+            service.DeleteMake(id);
+
+            TempData["SaveResult"] = "Your make was deleted";
+
+            return RedirectToAction("Index");
         }
     }
 }
