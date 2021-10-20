@@ -9,21 +9,7 @@ using System.Threading.Tasks;
 
 namespace Inspotivity.Data
 {
-    public enum PatternFor
-    {
-        Adult,
-        Teen,
-        Child,
-        Infant
-    }
-    public enum DifficultyLevel
-    {
-        Novice,
-        Beginner,
-        Intermediate,
-        Advanced,
-        Expert
-    }
+    
     public class PaperPattern
     {
         [Key]
@@ -41,8 +27,6 @@ namespace Inspotivity.Data
         public string FabricTypeNeeded { get; set; }
         public double FabricRequirementInYards { get; set; }
         public string NotionsNeeded { get; set; }
-        public PatternFor PatternFor { get; set; }
-        public DifficultyLevel DifficultyLevel{ get; set; }
         public string WhereStored { get; set; }
 
         [DefaultValue(false)]
