@@ -66,6 +66,10 @@
     <Compile Include="Migrations\202110160047008_ChangedVariableTypeFromIntToDouble.Designer.cs">
       <DependentUpon>202110160047008_ChangedVariableTypeFromIntToDouble.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110201337039_took-out-enum.cs" />
+    <Compile Include="Migrations\202110201337039_took-out-enum.Designer.cs">
+      <DependentUpon>202110201337039_took-out-enum.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PaperPattern.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -80,6 +84,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110160047008_ChangedVariableTypeFromIntToDouble.resx">
       <DependentUpon>202110160047008_ChangedVariableTypeFromIntToDouble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110201337039_took-out-enum.resx">
+      <DependentUpon>202110201337039_took-out-enum.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
